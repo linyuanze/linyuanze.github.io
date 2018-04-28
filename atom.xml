@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-04-28T15:24:53.000Z</updated>
+  <updated>2018-04-28T15:40:21.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,244 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Learning to Segment Every Thing</title>
+    <link href="http://yoursite.com/2018/04/28/learning-to-segment/"/>
+    <id>http://yoursite.com/2018/04/28/learning-to-segment/</id>
+    <published>2018-04-28T15:40:08.000Z</published>
+    <updated>2018-04-28T15:40:21.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Path Aggregation Network for Instance Segmentation</title>
+    <link href="http://yoursite.com/2018/04/28/path-aggregation/"/>
+    <id>http://yoursite.com/2018/04/28/path-aggregation/</id>
+    <published>2018-04-28T15:39:30.000Z</published>
+    <updated>2018-04-28T15:39:48.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Beyond Skip Connections:Top-Down Modulation for Object Detection</title>
+    <link href="http://yoursite.com/2018/04/28/beyond-skip/"/>
+    <id>http://yoursite.com/2018/04/28/beyond-skip/</id>
+    <published>2018-04-28T15:38:36.000Z</published>
+    <updated>2018-04-28T15:38:47.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>DSOD:Learning Deeply Supervised Object Detectors from Scratch</title>
+    <link href="http://yoursite.com/2018/04/28/dsod/"/>
+    <id>http://yoursite.com/2018/04/28/dsod/</id>
+    <published>2018-04-28T15:37:56.000Z</published>
+    <updated>2018-04-28T15:38:07.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Face Attention Network:An Effective Face Detector for the Occluded Faces</title>
+    <link href="http://yoursite.com/2018/04/28/face-attention/"/>
+    <id>http://yoursite.com/2018/04/28/face-attention/</id>
+    <published>2018-04-28T15:37:07.000Z</published>
+    <updated>2018-04-28T15:37:36.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Detecting Faces Using Region-based Fully Convolutional Networks</title>
+    <link href="http://yoursite.com/2018/04/28/face-rfcn/"/>
+    <id>http://yoursite.com/2018/04/28/face-rfcn/</id>
+    <published>2018-04-28T15:36:26.000Z</published>
+    <updated>2018-04-28T15:36:41.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Faster R-CNN:Towards Real-Time Object Detection with Region Proposal Networks</title>
+    <link href="http://yoursite.com/2018/04/28/faster-rcnn/"/>
+    <id>http://yoursite.com/2018/04/28/faster-rcnn/</id>
+    <published>2018-04-28T15:35:22.000Z</published>
+    <updated>2018-04-28T15:35:36.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Feature-Fused SSD- Fast Detection for Small Objects.pdf</title>
+    <link href="http://yoursite.com/2018/04/28/feature-fused-ssd/"/>
+    <id>http://yoursite.com/2018/04/28/feature-fused-ssd/</id>
+    <published>2018-04-28T15:34:35.000Z</published>
+    <updated>2018-04-28T15:34:50.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>DSSD:Deconvolutional Single Shot Detector</title>
+    <link href="http://yoursite.com/2018/04/28/dssd/"/>
+    <id>http://yoursite.com/2018/04/28/dssd/</id>
+    <published>2018-04-28T15:32:58.000Z</published>
+    <updated>2018-04-28T15:33:11.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Mask R-CNN</title>
+    <link href="http://yoursite.com/2018/04/28/mask-rcnn/"/>
+    <id>http://yoursite.com/2018/04/28/mask-rcnn/</id>
+    <published>2018-04-28T15:32:32.000Z</published>
+    <updated>2018-04-28T15:33:36.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Dynamic Zoom-in Network for Fast Object Detection in Large Images</title>
+    <link href="http://yoursite.com/2018/04/28/dynamic-zoom/"/>
+    <id>http://yoursite.com/2018/04/28/dynamic-zoom/</id>
+    <published>2018-04-28T15:31:48.000Z</published>
+    <updated>2018-04-28T15:31:57.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Feature Space Transfer for Data Augmentation</title>
+    <link href="http://yoursite.com/2018/04/28/feature-space/"/>
+    <id>http://yoursite.com/2018/04/28/feature-space/</id>
+    <published>2018-04-28T15:31:37.000Z</published>
+    <updated>2018-04-28T15:31:41.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Single-Shot Refinement Neural Network for Object Detection</title>
+    <link href="http://yoursite.com/2018/04/28/single-shot/"/>
+    <id>http://yoursite.com/2018/04/28/single-shot/</id>
+    <published>2018-04-28T15:30:30.000Z</published>
+    <updated>2018-04-28T15:30:39.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Pseudo Mask Augmented Object Detection</title>
+    <link href="http://yoursite.com/2018/04/28/pseudo-mask/"/>
+    <id>http://yoursite.com/2018/04/28/pseudo-mask/</id>
+    <published>2018-04-28T15:29:37.000Z</published>
+    <updated>2018-04-28T15:29:58.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Spatial Pyramid Pooling in Deep Convolutional Networks for Visual Recognition</title>
+    <link href="http://yoursite.com/2018/04/28/spp-net/"/>
+    <id>http://yoursite.com/2018/04/28/spp-net/</id>
+    <published>2018-04-28T15:28:18.000Z</published>
+    <updated>2018-04-28T15:28:54.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>YOLO9000:Better, Faster, Stronger</title>
+    <link href="http://yoursite.com/2018/04/28/yolo9000/"/>
+    <id>http://yoursite.com/2018/04/28/yolo9000/</id>
+    <published>2018-04-28T15:27:42.000Z</published>
+    <updated>2018-04-28T15:27:56.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Focal Loss for Dense Object Detection</title>
+    <link href="http://yoursite.com/2018/04/28/focal-loss/"/>
+    <id>http://yoursite.com/2018/04/28/focal-loss/</id>
+    <published>2018-04-28T15:27:06.000Z</published>
+    <updated>2018-04-28T15:28:31.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>An Analysis of Scale Invariance in Object Detection – SNIP</title>
@@ -50,217 +288,6 @@
     <id>http://yoursite.com/2018/04/28/megdet/</id>
     <published>2018-04-28T15:20:29.000Z</published>
     <updated>2018-04-28T15:21:21.000Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>R-FCN-3000 at 30fps:Decoupling Detection and Classification</title>
-    <link href="http://yoursite.com/2018/04/28/R-FCN3000/"/>
-    <id>http://yoursite.com/2018/04/28/R-FCN3000/</id>
-    <published>2018-04-28T15:17:31.000Z</published>
-    <updated>2018-04-28T15:22:18.000Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>R-FCN:Object Detection via Region-based Fully Convolutional Networks</title>
-    <link href="http://yoursite.com/2018/04/28/R-FCN/"/>
-    <id>http://yoursite.com/2018/04/28/R-FCN/</id>
-    <published>2018-04-28T15:17:28.000Z</published>
-    <updated>2018-04-28T15:22:55.000Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>RON-Reverse Connection with Objectness Prior Networks for Object Detection</title>
-    <link href="http://yoursite.com/2018/04/28/ron/"/>
-    <id>http://yoursite.com/2018/04/28/ron/</id>
-    <published>2018-04-28T15:16:51.000Z</published>
-    <updated>2018-04-28T15:20:08.000Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>OHEM:Training Region-based Object Detectors with Online Hard Example Mining</title>
-    <link href="http://yoursite.com/2018/04/28/ohem/"/>
-    <id>http://yoursite.com/2018/04/28/ohem/</id>
-    <published>2018-04-28T15:16:33.000Z</published>
-    <updated>2018-04-28T15:23:15.000Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Deformable Convolutional Networks</title>
-    <link href="http://yoursite.com/2018/04/28/deformable/"/>
-    <id>http://yoursite.com/2018/04/28/deformable/</id>
-    <published>2018-04-28T15:16:27.000Z</published>
-    <updated>2018-04-28T15:19:40.000Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Light-Head R-CNN:In Defense of Two-Stage Object Detector</title>
-    <link href="http://yoursite.com/2018/04/28/light-head/"/>
-    <id>http://yoursite.com/2018/04/28/light-head/</id>
-    <published>2018-04-28T15:16:21.000Z</published>
-    <updated>2018-04-28T15:21:55.000Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Go And Try !!!</title>
-    <link href="http://yoursite.com/2018/04/28/hello-world/"/>
-    <id>http://yoursite.com/2018/04/28/hello-world/</id>
-    <published>2018-04-28T11:49:25.000Z</published>
-    <updated>2018-04-28T12:04:19.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>今天开始写博客啦！会定期更新一些看过paper的读后感，记录自己学习的点点滴滴，加油! Everything is possible, no matter how difficult it is, I will try for my dream!!!</p><p><img src="/2018/04/28/hello-world/first.jpg" alt="Go and Try!"></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;今天开始写博客啦！会定期更新一些看过paper的读后感，记录自己学习的点点滴滴，加油! Everything is possible, no matter how difficult it is, I will try for my dream!!!&lt;/p&gt;
-&lt;p&gt;&lt;img
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>dynamic-zoom</title>
-    <link href="http://yoursite.com/2018/04/28/dynamic-zoom/dynamic-zoom/"/>
-    <id>http://yoursite.com/2018/04/28/dynamic-zoom/dynamic-zoom/</id>
-    <published>2018-04-28T04:45:26.000Z</published>
-    <updated>2018-04-28T04:45:26.000Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>SSD</title>
-    <link href="http://yoursite.com/2018/04/28/SSD/SSD/"/>
-    <id>http://yoursite.com/2018/04/28/SSD/SSD/</id>
-    <published>2018-04-28T04:44:40.000Z</published>
-    <updated>2018-04-28T04:44:40.000Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>YOLO</title>
-    <link href="http://yoursite.com/2018/04/28/YOLO/"/>
-    <id>http://yoursite.com/2018/04/28/YOLO/</id>
-    <published>2018-04-28T04:44:10.000Z</published>
-    <updated>2018-04-28T12:43:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>这是一篇很经典的关于one-stage的paper, 最近由于组里要做一些检测的工作，并且是想让检测算法能够在嵌入式平台上运行, 因此主要聚焦在one-stage detector上, 而两篇比较经典的one-stage detector的paper就是SSD和YOLO了。</p><p>本篇工作相对于Faster-RCNN, 不需要先训RPN再去训Fast RCNN, 即不需要额外去训练网络来预测潜在的proposal, 可以实现end to end的训练, 虽然mAP上没有达到Faster RCNN那种程度，但速度有了大幅度的提升，使用GPU甚至可以达到实时地检测，YOLO将目标检测的问题看成一个回归问题来进行求解, 完成了从输入的原始图像到物体位置和类别的输出, 整个YOLO系统Pipeline如下：<br><img src="/2018/04/28/YOLO/1.jpg" alt="YOLO System Pipeline!"></p><p>即:<br>  (1) Resize input image to 448 x 448<br>  (2) Runs a single CNN on the image<br>  (3) NMS(thresholds the detection results by their corresponding confidence)</p><p>YOLO的检测网络整体包括24个卷积层和2个全连接层, 网络组成结果如下图所示(并使用1x1卷积层来减少来自前面层的特征空间，来达到减少FLOPS来增快推理速度的目的):<br><img src="/2018/04/28/YOLO/3.jpg" alt="YOLO System Pipeline!"></p><p>其中通过卷积层来对图像进行特征提取的操作，后续的全连接层则是用于预测图像中目标的位置及其类别概率值, 并在ImageNet数据集(224x224分辨率)上预训练好卷积层部分权重, 之后将分辨率扩大为448x448(即翻倍)来训练最终的整个检测部分。</p><p>More Details：</p><p>YOLO将输入图像分成SxS个格子, 如下图所示<br><img src="/2018/04/28/YOLO/2.jpg" alt="Input Image!"></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;这是一篇很经典的关于one-stage的paper, 最近由于组里要做一些检测的工作，并且是想让检测算法能够在嵌入式平台上运行, 因此主要聚焦在one-stage detector上, 而两篇比较经典的one-stage detector的paper就是SSD和YOLO了。
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Wasserstein Introspective Neural Networks</title>
-    <link href="http://yoursite.com/2018/04/28/WIN/"/>
-    <id>http://yoursite.com/2018/04/28/WIN/</id>
-    <published>2018-04-27T17:19:07.000Z</published>
-    <updated>2018-04-27T17:19:18.000Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Relation Networks for Object Detection</title>
-    <link href="http://yoursite.com/2018/04/28/relation-network/"/>
-    <id>http://yoursite.com/2018/04/28/relation-network/</id>
-    <published>2018-04-27T17:18:34.000Z</published>
-    <updated>2018-04-27T17:20:38.000Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Feature Space Transfer for Data Augmentation</title>
-    <link href="http://yoursite.com/2018/04/28/feature-space/"/>
-    <id>http://yoursite.com/2018/04/28/feature-space/</id>
-    <published>2018-04-27T17:17:54.000Z</published>
-    <updated>2018-04-27T17:18:06.000Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Squeeze-and-Excitation Network</title>
-    <link href="http://yoursite.com/2018/04/28/SEN/"/>
-    <id>http://yoursite.com/2018/04/28/SEN/</id>
-    <published>2018-04-27T17:09:56.000Z</published>
-    <updated>2018-04-27T17:20:54.000Z</updated>
     
     <summary type="html">
     
