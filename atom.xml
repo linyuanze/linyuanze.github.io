@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-04-28T15:47:40.000Z</updated>
+  <updated>2018-04-28T15:57:27.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,146 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Bottom-Up and Top-Down Attention for Image Captioning and Visual Question Answering</title>
+    <link href="http://yoursite.com/2018/04/28/bottom-up-and/"/>
+    <id>http://yoursite.com/2018/04/28/bottom-up-and/</id>
+    <published>2018-04-28T15:57:16.000Z</published>
+    <updated>2018-04-28T15:57:27.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Deep Layer Aggregation</title>
+    <link href="http://yoursite.com/2018/04/28/deep-layer-aggregation/"/>
+    <id>http://yoursite.com/2018/04/28/deep-layer-aggregation/</id>
+    <published>2018-04-28T15:56:50.000Z</published>
+    <updated>2018-04-28T15:57:02.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Detail-Preserving Pooling in Deep Networks</title>
+    <link href="http://yoursite.com/2018/04/28/detail-preserving/"/>
+    <id>http://yoursite.com/2018/04/28/detail-preserving/</id>
+    <published>2018-04-28T15:56:26.000Z</published>
+    <updated>2018-04-28T15:56:34.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Discriminative Learning of Latent Features for Zero-Shot Recognition</title>
+    <link href="http://yoursite.com/2018/04/28/discriminative-learning/"/>
+    <id>http://yoursite.com/2018/04/28/discriminative-learning/</id>
+    <published>2018-04-28T15:56:04.000Z</published>
+    <updated>2018-04-28T15:56:11.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Semi-parametric Image Synthesis</title>
+    <link href="http://yoursite.com/2018/04/28/semi-parametric/"/>
+    <id>http://yoursite.com/2018/04/28/semi-parametric/</id>
+    <published>2018-04-28T15:55:17.000Z</published>
+    <updated>2018-04-28T15:55:27.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Taskonomy:Disentangling Task Transfer Learning</title>
+    <link href="http://yoursite.com/2018/04/28/taskonomy/"/>
+    <id>http://yoursite.com/2018/04/28/taskonomy/</id>
+    <published>2018-04-28T15:54:46.000Z</published>
+    <updated>2018-04-28T15:55:01.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Dual Path Networks</title>
+    <link href="http://yoursite.com/2018/04/28/dpn/"/>
+    <id>http://yoursite.com/2018/04/28/dpn/</id>
+    <published>2018-04-28T15:53:21.000Z</published>
+    <updated>2018-04-28T15:53:32.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Aggregated Residual Transformations for Deep Neural Networks</title>
+    <link href="http://yoursite.com/2018/04/28/resnext/"/>
+    <id>http://yoursite.com/2018/04/28/resnext/</id>
+    <published>2018-04-28T15:52:42.000Z</published>
+    <updated>2018-04-28T15:52:51.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Mimicking Very Efficient Network for Object Detection</title>
+    <link href="http://yoursite.com/2018/04/28/mimic/"/>
+    <id>http://yoursite.com/2018/04/28/mimic/</id>
+    <published>2018-04-28T15:52:15.000Z</published>
+    <updated>2018-04-28T15:52:24.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>A Survey of Model Compression and Acceleration for Deep Neural Networks</title>
+    <link href="http://yoursite.com/2018/04/28/a-suvey-of/"/>
+    <id>http://yoursite.com/2018/04/28/a-suvey-of/</id>
+    <published>2018-04-28T15:51:10.000Z</published>
+    <updated>2018-04-28T15:51:28.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>U-Net:Convolutional Networks for Biomedical Image Segmentation</title>
@@ -148,146 +288,6 @@
     <id>http://yoursite.com/2018/04/28/dsod/</id>
     <published>2018-04-28T15:37:56.000Z</published>
     <updated>2018-04-28T15:38:07.000Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Face Attention Network:An Effective Face Detector for the Occluded Faces</title>
-    <link href="http://yoursite.com/2018/04/28/face-attention/"/>
-    <id>http://yoursite.com/2018/04/28/face-attention/</id>
-    <published>2018-04-28T15:37:07.000Z</published>
-    <updated>2018-04-28T15:37:36.000Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Detecting Faces Using Region-based Fully Convolutional Networks</title>
-    <link href="http://yoursite.com/2018/04/28/face-rfcn/"/>
-    <id>http://yoursite.com/2018/04/28/face-rfcn/</id>
-    <published>2018-04-28T15:36:26.000Z</published>
-    <updated>2018-04-28T15:36:41.000Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Faster R-CNN:Towards Real-Time Object Detection with Region Proposal Networks</title>
-    <link href="http://yoursite.com/2018/04/28/faster-rcnn/"/>
-    <id>http://yoursite.com/2018/04/28/faster-rcnn/</id>
-    <published>2018-04-28T15:35:22.000Z</published>
-    <updated>2018-04-28T15:35:36.000Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Feature-Fused SSD- Fast Detection for Small Objects.pdf</title>
-    <link href="http://yoursite.com/2018/04/28/feature-fused-ssd/"/>
-    <id>http://yoursite.com/2018/04/28/feature-fused-ssd/</id>
-    <published>2018-04-28T15:34:35.000Z</published>
-    <updated>2018-04-28T15:34:50.000Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>DSSD:Deconvolutional Single Shot Detector</title>
-    <link href="http://yoursite.com/2018/04/28/dssd/"/>
-    <id>http://yoursite.com/2018/04/28/dssd/</id>
-    <published>2018-04-28T15:32:58.000Z</published>
-    <updated>2018-04-28T15:33:11.000Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Mask R-CNN</title>
-    <link href="http://yoursite.com/2018/04/28/mask-rcnn/"/>
-    <id>http://yoursite.com/2018/04/28/mask-rcnn/</id>
-    <published>2018-04-28T15:32:32.000Z</published>
-    <updated>2018-04-28T15:33:36.000Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Dynamic Zoom-in Network for Fast Object Detection in Large Images</title>
-    <link href="http://yoursite.com/2018/04/28/dynamic-zoom/"/>
-    <id>http://yoursite.com/2018/04/28/dynamic-zoom/</id>
-    <published>2018-04-28T15:31:48.000Z</published>
-    <updated>2018-04-28T15:31:57.000Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Feature Space Transfer for Data Augmentation</title>
-    <link href="http://yoursite.com/2018/04/28/feature-space/"/>
-    <id>http://yoursite.com/2018/04/28/feature-space/</id>
-    <published>2018-04-28T15:31:37.000Z</published>
-    <updated>2018-04-28T15:31:41.000Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Single-Shot Refinement Neural Network for Object Detection</title>
-    <link href="http://yoursite.com/2018/04/28/single-shot/"/>
-    <id>http://yoursite.com/2018/04/28/single-shot/</id>
-    <published>2018-04-28T15:30:30.000Z</published>
-    <updated>2018-04-28T15:30:39.000Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Pseudo Mask Augmented Object Detection</title>
-    <link href="http://yoursite.com/2018/04/28/pseudo-mask/"/>
-    <id>http://yoursite.com/2018/04/28/pseudo-mask/</id>
-    <published>2018-04-28T15:29:37.000Z</published>
-    <updated>2018-04-28T15:29:58.000Z</updated>
     
     <summary type="html">
     
