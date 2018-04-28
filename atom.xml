@@ -241,6 +241,20 @@
   </entry>
   
   <entry>
+    <title>Cascade R-CNN:Delving into High Quality Object Detection</title>
+    <link href="http://yoursite.com/2018/04/28/cascaded-rcnn/"/>
+    <id>http://yoursite.com/2018/04/28/cascaded-rcnn/</id>
+    <published>2018-04-28T15:27:20.000Z</published>
+    <updated>2018-04-28T15:40:49.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Focal Loss for Dense Object Detection</title>
     <link href="http://yoursite.com/2018/04/28/focal-loss/"/>
     <id>http://yoursite.com/2018/04/28/focal-loss/</id>
@@ -274,20 +288,6 @@
     <id>http://yoursite.com/2018/04/28/soft-nms/</id>
     <published>2018-04-28T15:23:53.000Z</published>
     <updated>2018-04-28T15:24:01.000Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>MegDet:A Large Mini-Batch Object Detector</title>
-    <link href="http://yoursite.com/2018/04/28/megdet/"/>
-    <id>http://yoursite.com/2018/04/28/megdet/</id>
-    <published>2018-04-28T15:20:29.000Z</published>
-    <updated>2018-04-28T15:21:21.000Z</updated>
     
     <summary type="html">
     
