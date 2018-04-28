@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>One Tourist</title>
+  
+  <subtitle>一名划水者的日常</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2018-04-28T04:45:26.000Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>Lin Yuanze</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>dynamic-zoom</title>
+    <link href="http://yoursite.com/2018/04/28/dynamic-zoom/dynamic-zoom/"/>
+    <id>http://yoursite.com/2018/04/28/dynamic-zoom/dynamic-zoom/</id>
+    <published>2018-04-28T04:45:26.000Z</published>
+    <updated>2018-04-28T04:45:26.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>SSD</title>
+    <link href="http://yoursite.com/2018/04/28/SSD/SSD/"/>
+    <id>http://yoursite.com/2018/04/28/SSD/SSD/</id>
+    <published>2018-04-28T04:44:40.000Z</published>
+    <updated>2018-04-28T04:44:40.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>YOLO</title>
+    <link href="http://yoursite.com/2018/04/28/YOLO/YOLO/"/>
+    <id>http://yoursite.com/2018/04/28/YOLO/YOLO/</id>
+    <published>2018-04-28T04:44:10.000Z</published>
+    <updated>2018-04-28T05:10:46.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Wasserstein Introspective Neural Networks</title>
+    <link href="http://yoursite.com/2018/04/28/WIN/"/>
+    <id>http://yoursite.com/2018/04/28/WIN/</id>
+    <published>2018-04-27T17:19:07.000Z</published>
+    <updated>2018-04-27T17:19:18.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Relation Networks for Object Detection</title>
+    <link href="http://yoursite.com/2018/04/28/relation-network/"/>
+    <id>http://yoursite.com/2018/04/28/relation-network/</id>
+    <published>2018-04-27T17:18:34.000Z</published>
+    <updated>2018-04-27T17:20:38.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Feature Space Transfer for Data Augmentation</title>
+    <link href="http://yoursite.com/2018/04/28/feature-space/"/>
+    <id>http://yoursite.com/2018/04/28/feature-space/</id>
+    <published>2018-04-27T17:17:54.000Z</published>
+    <updated>2018-04-27T17:18:06.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Squeeze-and-Excitation Network</title>
+    <link href="http://yoursite.com/2018/04/28/SEN/"/>
+    <id>http://yoursite.com/2018/04/28/SEN/</id>
+    <published>2018-04-27T17:09:56.000Z</published>
+    <updated>2018-04-27T17:20:54.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World (￣▽￣)!</title>
+    <link href="http://yoursite.com/2018/04/27/hello-world/"/>
+    <id>http://yoursite.com/2018/04/27/hello-world/</id>
+    <published>2018-04-27T13:29:31.000Z</published>
+    <updated>2018-04-27T17:07:18.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to my homepage! This blog is used to record my time for researching and considering, I wanna to write something after I read some interesting papers, these papers may be relevant about AI, such as object detection, model compression, semantic segmentation, instance segmentation, video understanding and so on, ≥ω≤, some work I think would be very fundamental, study is funny, especially for researching!!!(▔^▔)/</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Welcome to my homepage! This blog is used to record my time for researching and considering, I wanna to write something after I read some
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
