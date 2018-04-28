@@ -59,11 +59,39 @@
   </entry>
   
   <entry>
+    <title>Tiny SSD:A Tiny Single-shot Detection Deep Convolutional Neural Network for Real-time Embedded Object Detection</title>
+    <link href="http://yoursite.com/2018/04/28/tidy-ssd/"/>
+    <id>http://yoursite.com/2018/04/28/tidy-ssd/</id>
+    <published>2018-04-28T15:44:44.000Z</published>
+    <updated>2018-04-28T15:48:18.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Localization-Aware Active Learning for Object Detection</title>
     <link href="http://yoursite.com/2018/04/28/location-aware/"/>
     <id>http://yoursite.com/2018/04/28/location-aware/</id>
     <published>2018-04-28T15:44:05.000Z</published>
     <updated>2018-04-28T15:44:15.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>DIRACNETS:TRAINING VERY DEEP NEURAL NETWORKS WITHOUT SKIP-CONNECTIONS</title>
+    <link href="http://yoursite.com/2018/04/28/diracnets/"/>
+    <id>http://yoursite.com/2018/04/28/diracnets/</id>
+    <published>2018-04-28T15:42:39.000Z</published>
+    <updated>2018-04-28T15:48:28.000Z</updated>
     
     <summary type="html">
     
@@ -260,34 +288,6 @@
     <id>http://yoursite.com/2018/04/28/pseudo-mask/</id>
     <published>2018-04-28T15:29:37.000Z</published>
     <updated>2018-04-28T15:29:58.000Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Spatial Pyramid Pooling in Deep Convolutional Networks for Visual Recognition</title>
-    <link href="http://yoursite.com/2018/04/28/spp-net/"/>
-    <id>http://yoursite.com/2018/04/28/spp-net/</id>
-    <published>2018-04-28T15:28:18.000Z</published>
-    <updated>2018-04-28T15:28:54.000Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>YOLO9000:Better, Faster, Stronger</title>
-    <link href="http://yoursite.com/2018/04/28/yolo9000/"/>
-    <id>http://yoursite.com/2018/04/28/yolo9000/</id>
-    <published>2018-04-28T15:27:42.000Z</published>
-    <updated>2018-04-28T15:27:56.000Z</updated>
     
     <summary type="html">
     
