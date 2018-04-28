@@ -49,15 +49,15 @@
     <link href="http://yoursite.com/2018/04/28/YOLO/YOLO/"/>
     <id>http://yoursite.com/2018/04/28/YOLO/YOLO/</id>
     <published>2018-04-28T04:44:10.000Z</published>
-    <updated>2018-04-28T07:58:08.000Z</updated>
+    <updated>2018-04-28T08:00:52.000Z</updated>
     
-    <content type="html"><![CDATA[<p>这是一篇很经典的关于one-stage的paper.<br><img src="/2018/04/28/YOLO/YOLO/first.jpg" alt="你想输入的替代文字"></p>]]></content>
+    <content type="html"><![CDATA[<p>这是一篇很经典的关于one-stage的paper.<br>我现在写了一个段落，并且想在这个段落的某一个地方引入一张图片</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;这是一篇很经典的关于one-stage的paper.&lt;br&gt;&lt;img src=&quot;/2018/04/28/YOLO/YOLO/first.jpg&quot; alt=&quot;你想输入的替代文字&quot;&gt;&lt;/p&gt;
+        &lt;p&gt;这是一篇很经典的关于one-stage的paper.&lt;br&gt;我现在写了一个段落，并且想在这个段落的某一个地方引入一张图片&lt;/p&gt;
 
       
     
