@@ -81,17 +81,17 @@
 
 
 
-<meta name="description" content="心得、感想、随笔">
+<meta name="description" content="勿忘初心, 方得始终">
 <meta name="keywords" content="AI, CV and others">
 <meta property="og:type" content="website">
 <meta property="og:title" content="One Tourist">
 <meta property="og:url" content="http://yoursite.com/index.html">
 <meta property="og:site_name" content="One Tourist">
-<meta property="og:description" content="心得、感想、随笔">
+<meta property="og:description" content="勿忘初心, 方得始终">
 <meta property="og:locale" content="Chinese">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="One Tourist">
-<meta name="twitter:description" content="心得、感想、随笔">
+<meta name="twitter:description" content="勿忘初心, 方得始终">
 
 
 
@@ -738,7 +738,9 @@
 <p>本篇工作相对于Faster-RCNN, 不需要先训RPN再去训Fast RCNN, 即不需要额外去训练网络来预测潜在的proposal, 可以实现end to end的训练, 虽然mAP上没有达到Faster RCNN那种程度，但速度有了大幅度的提升，使用GPU甚至可以达到实时地检测，YOLO将目标检测的问题看成一个回归问题来进行求解, 完成了从输入的原始图像到物体位置和类别的输出, 整个YOLO系统Pipeline如下：<br><img src="/2018/04/28/YOLO/1.jpg" alt="YOLO System Pipeline!"></p>
 <p>即:<br>  (1) Resize input image to 448 x 448<br>  (2) Runs a single CNN on the image<br>  (3) NMS(thresholds the detection results by their corresponding confidence)</p>
 <p>YOLO的检测网络整体包括24个卷积层和2个全连接层, 网络组成结果如下图所示(并使用1x1卷积层来减少来自前面层的特征空间，来达到减少FLOPS来增快推理速度的目的):<br><img src="/2018/04/28/YOLO/3.jpg" alt="YOLO System Pipeline!"></p>
-<p>其中通过卷积层来对图像进行特征提取的操作，后续的全连接层则是用于预测图像中目标的位置及其类别概率值, 并在ImageNet数据集(224x224分辨率)上预训练好卷积层部分权重, 之后将分辨率扩大为448x448(即翻倍)来训练最终的检测。</p>
+<p>其中通过卷积层来对图像进行特征提取的操作，后续的全连接层则是用于预测图像中目标的位置及其类别概率值, 并在ImageNet数据集(224x224分辨率)上预训练好卷积层部分权重, 之后将分辨率扩大为448x448(即翻倍)来训练最终的整个检测部分。</p>
+<p>More Details：</p>
+<p>YOLO将输入图像分成SxS个格子, 如下图所示<br><img src="/2018/04/28/YOLO/2.jpg" alt="Input Image!"></p>
 
           
         
@@ -1290,7 +1292,7 @@
                 alt="Lin Yuanze" />
             
               <p class="site-author-name" itemprop="name">Lin Yuanze</p>
-              <p class="site-description motion-element" itemprop="description">心得、感想、随笔</p>
+              <p class="site-description motion-element" itemprop="description">勿忘初心, 方得始终</p>
           </div>
 
           <nav class="site-state motion-element">
