@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-04-28T15:21:21.000Z</updated>
+  <updated>2018-04-28T15:24:53.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>An Analysis of Scale Invariance in Object Detection – SNIP</title>
+    <link href="http://yoursite.com/2018/04/28/snip/"/>
+    <id>http://yoursite.com/2018/04/28/snip/</id>
+    <published>2018-04-28T15:24:47.000Z</published>
+    <updated>2018-04-28T15:24:53.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Soft-NMS -- Improving Object Detection With One Line of Code</title>
+    <link href="http://yoursite.com/2018/04/28/soft-nms/"/>
+    <id>http://yoursite.com/2018/04/28/soft-nms/</id>
+    <published>2018-04-28T15:23:53.000Z</published>
+    <updated>2018-04-28T15:24:01.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>MegDet:A Large Mini-Batch Object Detector</title>
@@ -31,11 +59,11 @@
   </entry>
   
   <entry>
-    <title>R-FCN-3000 at 30fps</title>
+    <title>R-FCN-3000 at 30fps:Decoupling Detection and Classification</title>
     <link href="http://yoursite.com/2018/04/28/R-FCN3000/"/>
     <id>http://yoursite.com/2018/04/28/R-FCN3000/</id>
     <published>2018-04-28T15:17:31.000Z</published>
-    <updated>2018-04-28T15:18:49.000Z</updated>
+    <updated>2018-04-28T15:22:18.000Z</updated>
     
     <summary type="html">
     
@@ -45,11 +73,11 @@
   </entry>
   
   <entry>
-    <title>R-FCN</title>
+    <title>R-FCN:Object Detection via Region-based Fully Convolutional Networks</title>
     <link href="http://yoursite.com/2018/04/28/R-FCN/"/>
     <id>http://yoursite.com/2018/04/28/R-FCN/</id>
     <published>2018-04-28T15:17:28.000Z</published>
-    <updated>2018-04-28T15:18:17.000Z</updated>
+    <updated>2018-04-28T15:22:55.000Z</updated>
     
     <summary type="html">
     
@@ -73,11 +101,11 @@
   </entry>
   
   <entry>
-    <title>ohem</title>
+    <title>OHEM:Training Region-based Object Detectors with Online Hard Example Mining</title>
     <link href="http://yoursite.com/2018/04/28/ohem/"/>
     <id>http://yoursite.com/2018/04/28/ohem/</id>
     <published>2018-04-28T15:16:33.000Z</published>
-    <updated>2018-04-28T15:16:33.000Z</updated>
+    <updated>2018-04-28T15:23:15.000Z</updated>
     
     <summary type="html">
     
@@ -101,11 +129,11 @@
   </entry>
   
   <entry>
-    <title>Light-Head R-CNN</title>
+    <title>Light-Head R-CNN:In Defense of Two-Stage Object Detector</title>
     <link href="http://yoursite.com/2018/04/28/light-head/"/>
     <id>http://yoursite.com/2018/04/28/light-head/</id>
     <published>2018-04-28T15:16:21.000Z</published>
-    <updated>2018-04-28T15:19:20.000Z</updated>
+    <updated>2018-04-28T15:21:55.000Z</updated>
     
     <summary type="html">
     
