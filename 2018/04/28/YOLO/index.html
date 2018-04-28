@@ -81,20 +81,20 @@
 
 
 
-<meta name="description" content="这是一篇很经典的关于one-stage的paper, 最近由于组里要做一些检测的工作，并且是想让检测算法能够在嵌入式平台上运行, 因此主要聚焦在one-stage detector上, 而两篇比较经典的one-stage detector的paper就是SSD和YOLO了。 本篇工作相对于Faster-RCNN, 不需要先训RPN再去训Fast RCNN, 可以实现end to end的训练, 虽">
+<meta name="description" content="这是一篇很经典的关于one-stage的paper, 最近由于组里要做一些检测的工作，并且是想让检测算法能够在嵌入式平台上运行, 因此主要聚焦在one-stage detector上, 而两篇比较经典的one-stage detector的paper就是SSD和YOLO了。 本篇工作相对于Faster-RCNN, 不需要先训RPN再去训Fast RCNN, 即不需要额外去训练网络来预测潜在的pro">
 <meta name="keywords" content="AI, CV and others">
 <meta property="og:type" content="article">
 <meta property="og:title" content="YOLO">
 <meta property="og:url" content="http://yoursite.com/2018/04/28/YOLO/index.html">
 <meta property="og:site_name" content="One Tourist">
-<meta property="og:description" content="这是一篇很经典的关于one-stage的paper, 最近由于组里要做一些检测的工作，并且是想让检测算法能够在嵌入式平台上运行, 因此主要聚焦在one-stage detector上, 而两篇比较经典的one-stage detector的paper就是SSD和YOLO了。 本篇工作相对于Faster-RCNN, 不需要先训RPN再去训Fast RCNN, 可以实现end to end的训练, 虽">
+<meta property="og:description" content="这是一篇很经典的关于one-stage的paper, 最近由于组里要做一些检测的工作，并且是想让检测算法能够在嵌入式平台上运行, 因此主要聚焦在one-stage detector上, 而两篇比较经典的one-stage detector的paper就是SSD和YOLO了。 本篇工作相对于Faster-RCNN, 不需要先训RPN再去训Fast RCNN, 即不需要额外去训练网络来预测潜在的pro">
 <meta property="og:locale" content="Chinese">
 <meta property="og:image" content="http://yoursite.com/2018/04/28/YOLO/1.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/04/28/YOLO/3.jpg">
-<meta property="og:updated_time" content="2018-04-28T12:26:47.000Z">
+<meta property="og:updated_time" content="2018-04-28T12:38:45.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="YOLO">
-<meta name="twitter:description" content="这是一篇很经典的关于one-stage的paper, 最近由于组里要做一些检测的工作，并且是想让检测算法能够在嵌入式平台上运行, 因此主要聚焦在one-stage detector上, 而两篇比较经典的one-stage detector的paper就是SSD和YOLO了。 本篇工作相对于Faster-RCNN, 不需要先训RPN再去训Fast RCNN, 可以实现end to end的训练, 虽">
+<meta name="twitter:description" content="这是一篇很经典的关于one-stage的paper, 最近由于组里要做一些检测的工作，并且是想让检测算法能够在嵌入式平台上运行, 因此主要聚焦在one-stage detector上, 而两篇比较经典的one-stage detector的paper就是SSD和YOLO了。 本篇工作相对于Faster-RCNN, 不需要先训RPN再去训Fast RCNN, 即不需要额外去训练网络来预测潜在的pro">
 <meta name="twitter:image" content="http://yoursite.com/2018/04/28/YOLO/1.jpg">
 
 
@@ -375,10 +375,10 @@
 
       
         <p>这是一篇很经典的关于one-stage的paper, 最近由于组里要做一些检测的工作，并且是想让检测算法能够在嵌入式平台上运行, 因此主要聚焦在one-stage detector上, 而两篇比较经典的one-stage detector的paper就是SSD和YOLO了。</p>
-<p>本篇工作相对于Faster-RCNN, 不需要先训RPN再去训Fast RCNN, 可以实现end to end的训练, 虽然mAP上没有达到Faster RCNN那种程度，但速度有了大幅度的提升，使用GPU甚至可以达到实时地检测，YOLO将目标检测的问题看成一个回归问题来进行求解, 完成了从输入的原始图像到物体位置和类别的输出, 整个YOLO系统Pipeline如下：<br><img src="/2018/04/28/YOLO/1.jpg" alt="YOLO System Pipeline!"></p>
+<p>本篇工作相对于Faster-RCNN, 不需要先训RPN再去训Fast RCNN, 即不需要额外去训练网络来预测潜在的proposal, 可以实现end to end的训练, 虽然mAP上没有达到Faster RCNN那种程度，但速度有了大幅度的提升，使用GPU甚至可以达到实时地检测，YOLO将目标检测的问题看成一个回归问题来进行求解, 完成了从输入的原始图像到物体位置和类别的输出, 整个YOLO系统Pipeline如下：<br><img src="/2018/04/28/YOLO/1.jpg" alt="YOLO System Pipeline!"></p>
 <p>即:<br>  (1) Resize input image to 448 x 448<br>  (2) Runs a single CNN on the image<br>  (3) NMS(thresholds the detection results by their corresponding confidence)</p>
-<p>YOLO的检测网络整体包括24个卷积层和2个全连接层, 网络组成结果如下图所示:<br><img src="/2018/04/28/YOLO/3.jpg" alt="YOLO System Pipeline!"></p>
-<p>其中通过卷积层来对图像进行特征提取的操作，后续的全连接层则是用于预测图像中目标的位置及其类别概率值钱。</p>
+<p>YOLO的检测网络整体包括24个卷积层和2个全连接层, 网络组成结果如下图所示(并使用1x1卷积层来减少来自前面层的特征空间，来达到减少FLOPS来增快推理速度的目的):<br><img src="/2018/04/28/YOLO/3.jpg" alt="YOLO System Pipeline!"></p>
+<p>其中通过卷积层来对图像进行特征提取的操作，后续的全连接层则是用于预测图像中目标的位置及其类别概率值, 并在ImageNet数据集(224x224分辨率)上预训练好卷积层部分权重, 之后将分辨率扩大为448x448(即翻倍)来训练最终的检测。</p>
 
       
     </div>
