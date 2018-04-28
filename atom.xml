@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-04-28T15:18:49.000Z</updated>
+  <updated>2018-04-28T15:21:21.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,20 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MegDet:A Large Mini-Batch Object Detector</title>
+    <link href="http://yoursite.com/2018/04/28/megdet/"/>
+    <id>http://yoursite.com/2018/04/28/megdet/</id>
+    <published>2018-04-28T15:20:29.000Z</published>
+    <updated>2018-04-28T15:21:21.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>R-FCN-3000 at 30fps</title>
