@@ -71,15 +71,15 @@
     <link href="http://yoursite.com/2018/04/28/YOLO/"/>
     <id>http://yoursite.com/2018/04/28/YOLO/</id>
     <published>2018-04-28T04:44:10.000Z</published>
-    <updated>2018-04-28T12:16:21.000Z</updated>
+    <updated>2018-04-28T12:16:51.000Z</updated>
     
-    <content type="html"><![CDATA[<p>这是一篇很经典的关于one-stage的paper, 最近由于 里要做一些检测的工作，并且是想让检测算法能够在嵌入式平台上运行, 因此主要聚焦在one-stage detector上, 而两篇比较经典的one-stage detector的paper就是SSD和YOLO了。</p><p>本篇工作相对于Faster-RCNN, 不需要先训RPN再去训Fast RCNN, 可以实现end to end的训练, YOLO将目标检测的问题看成一个回归问题来进行求解, 完成了从输入的原始图像到物体位置和类别的输出, 整个YOLO系统Pipeline如下：<br><img src="/2018/04/28/YOLO/1.jpg" alt="YOLO System Pipeline!"></p><p>即:<br>  (1) Resize input image to 448 x 448<br>  (2) Runs a single CNN on the image<br>  (3) NMS(thresholds the detection results by their corresponding confidence)</p>]]></content>
+    <content type="html"><![CDATA[<p>这是一篇很经典的关于one-stage的paper, 最近由于组里要做一些检测的工作，并且是想让检测算法能够在嵌入式平台上运行, 因此主要聚焦在one-stage detector上, 而两篇比较经典的one-stage detector的paper就是SSD和YOLO了。</p><p>本篇工作相对于Faster-RCNN, 不需要先训RPN再去训Fast RCNN, 可以实现end to end的训练, YOLO将目标检测的问题看成一个回归问题来进行求解, 完成了从输入的原始图像到物体位置和类别的输出, 整个YOLO系统Pipeline如下：<br><img src="/2018/04/28/YOLO/1.jpg" alt="YOLO System Pipeline!"></p><p>即:<br>  (1) Resize input image to 448 x 448<br>  (2) Runs a single CNN on the image<br>  (3) NMS(thresholds the detection results by their corresponding confidence)</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;这是一篇很经典的关于one-stage的paper, 最近由于 里要做一些检测的工作，并且是想让检测算法能够在嵌入式平台上运行, 因此主要聚焦在one-stage detector上, 而两篇比较经典的one-stage detector的paper就是SSD和YOLO了。
+        &lt;p&gt;这是一篇很经典的关于one-stage的paper, 最近由于组里要做一些检测的工作，并且是想让检测算法能够在嵌入式平台上运行, 因此主要聚焦在one-stage detector上, 而两篇比较经典的one-stage detector的paper就是SSD和YOLO了。
       
     
     </summary>
