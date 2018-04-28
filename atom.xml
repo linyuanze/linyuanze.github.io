@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-04-28T11:56:50.000Z</updated>
+  <updated>2018-04-28T12:00:08.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,16 +21,16 @@
     <link href="http://yoursite.com/2018/04/28/hello-world/"/>
     <id>http://yoursite.com/2018/04/28/hello-world/</id>
     <published>2018-04-28T11:49:25.000Z</published>
-    <updated>2018-04-28T11:56:50.000Z</updated>
+    <updated>2018-04-28T12:00:08.000Z</updated>
     
-    <content type="html"><![CDATA[<p>今天开始写博客啦！会定期更新一些看过paper的读后感，记录自己学习的点点滴滴，加油! Everything is possible, no matter how difficult it<br>is, I will try for my dream!!!</p><p><a href="first.jpg">Go and Try!</a></p>]]></content>
+    <content type="html"><![CDATA[<p>今天开始写博客啦！会定期更新一些看过paper的读后感，记录自己学习的点点滴滴，加油! Everything is possible, no matter how difficult it is, I will try for my dream!!!</p><p><a href="hello-world/first.jpg">Go and Try!</a></p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;今天开始写博客啦！会定期更新一些看过paper的读后感，记录自己学习的点点滴滴，加油! Everything is possible, no matter how difficult it&lt;br&gt;is, I will try for my dream!!!&lt;/p&gt;
-&lt;p&gt;&lt;
+        &lt;p&gt;今天开始写博客啦！会定期更新一些看过paper的读后感，记录自己学习的点点滴滴，加油! Everything is possible, no matter how difficult it is, I will try for my dream!!!&lt;/p&gt;
+&lt;p&gt;&lt;a h
       
     
     </summary>
