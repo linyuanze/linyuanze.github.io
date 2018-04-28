@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-04-28T08:16:28.000Z</updated>
+  <updated>2018-04-28T04:45:26.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,28 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>ok</title>
-    <link href="http://yoursite.com/2018/04/28/ok/"/>
-    <id>http://yoursite.com/2018/04/28/ok/</id>
-    <published>2018-04-28T08:10:44.000Z</published>
-    <updated>2018-04-28T08:16:28.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>Is it OK?<br><img src="/2018/04/28/ok/img/first.jpg"></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Is it OK?&lt;br&gt;&lt;img src=&quot;/2018/04/28/ok/img/first.jpg&quot;&gt;&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-    
-  </entry>
   
   <entry>
     <title>dynamic-zoom</title>
@@ -71,15 +49,15 @@
     <link href="http://yoursite.com/2018/04/28/YOLO/"/>
     <id>http://yoursite.com/2018/04/28/YOLO/</id>
     <published>2018-04-28T04:44:10.000Z</published>
-    <updated>2018-04-28T08:08:04.000Z</updated>
+    <updated>2018-04-28T08:22:56.000Z</updated>
     
-    <content type="html"><![CDATA[<p>这是一篇很经典的关于one-stage的paper.<br><img src="/2018/04/28/YOLO/2018/04/28/YOLO/first.jpg" title="This is first post"></p>]]></content>
+    <content type="html"><![CDATA[<p>这是一篇很经典的关于one-stage的paper.<br>！！！！<br><img src="/2018/04/28/YOLO/first.jpg" alt="logo"></p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;这是一篇很经典的关于one-stage的paper.&lt;br&gt;&lt;img src=&quot;/2018/04/28/YOLO/2018/04/28/YOLO/first.jpg&quot; title=&quot;This is first post&quot;&gt;&lt;/p&gt;
+        &lt;p&gt;这是一篇很经典的关于one-stage的paper.&lt;br&gt;！！！！&lt;br&gt;&lt;img src=&quot;/2018/04/28/YOLO/first.jpg&quot; alt=&quot;logo&quot;&gt;&lt;/p&gt;
 
       
     
