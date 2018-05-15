@@ -96,7 +96,7 @@
 <meta property="og:image" content="http://yoursite.com/2018/04/28/YOLO/6.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/04/28/YOLO/7.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/04/28/YOLO/8.jpg">
-<meta property="og:updated_time" content="2018-05-15T19:45:00.000Z">
+<meta property="og:updated_time" content="2018-05-15T19:51:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="You Only Look Once:Unified, Real-Time Object Detection">
 <meta name="twitter:description" content="Introduction: 这是一篇很经典的关于one-stage的paper, 最近由于组里要做一些检测的工作，并且是想让检测算法能够在嵌入式平台上运行, 因此主要聚焦在one-stage detector上, 而两篇比较经典的one-stage detector的paper就是SSD和YOLO了。 本篇工作相对于Faster-RCNN, 不需要先训RPN再去训Fast RCNN, 即不需要额">
@@ -1140,6 +1140,28 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
 
   
 
