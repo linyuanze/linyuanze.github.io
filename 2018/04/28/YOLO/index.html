@@ -96,7 +96,7 @@
 <meta property="og:image" content="http://yoursite.com/2018/04/28/YOLO/6.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/04/28/YOLO/7.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/04/28/YOLO/8.jpg">
-<meta property="og:updated_time" content="2018-05-15T19:17:46.000Z">
+<meta property="og:updated_time" content="2018-05-15T19:31:36.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="You Only Look Once:Unified, Real-Time Object Detection">
 <meta name="twitter:description" content="1. Introduction:这是一篇很经典的关于one-stage的paper, 最近由于组里要做一些检测的工作，并且是想让检测算法能够在嵌入式平台上运行, 因此主要聚焦在one-stage detector上, 而两篇比较经典的one-stage detector的paper就是SSD和YOLO了。 本篇工作相对于Faster-RCNN, 不需要先训RPN再去训Fast RCNN, 即不需要">
@@ -399,15 +399,15 @@
 <p>综上，YOLO在训练过程中Loss计算如下式所示：<br><img src="/2018/04/28/YOLO/8.jpg" alt="Image4"><br>其中，<code>x,y,w,C,p</code>为网络预测值，<code>x,y,w,C,p帽</code>为标注值。\Pi_{i}^{obj} 表示物体落入格子i中，\Pi_{ij}^{obj} 和\Pi_{ij}^{noobj} 分别表示物体落入与未落入格子<code>i</code>的第<code>j</code>个bounding box内。</p>
 <h3 id="注"><a href="#注" class="headerlink" title="注:"></a>注:</h3><pre><code>1.YOLO方法模型训练依赖于物体识别标注数据，因此，对于非常规的物体形状或比例，YOLO的检测效果并不理想。
 2.YOLO采用了多个下采样层，网络学到的物体特征并不精细，因此也会影响检测效果。
-3.YOLO loss函数中，大物体IOU误差和小物体IOU误差对网络训练中loss贡献值接近（虽然采用求平方根方式，但没有根本解决问题）。因此，对
-</code></pre><p>于小物体，小的IOU误差也会对网络优化过程造成很大的影响，从而降低了物体检测的定位准确性。 </p>
-<h2 id="4-Training-Details"><a href="#4-Training-Details" class="headerlink" title="4. Training Details:"></a>4. Training Details:</h2><p>YOLO模型训练分为两步：</p>
+3.YOLO loss函数中，大物体IOU误差和小物体IOU误差对网络训练中loss贡献值接近（虽然采用求平方根方式，但没有根本解决问题）。因此，对于小物体，小的IOU误差也会对网络优化过程造成很大的影响，从而降低了物体检测的定位准确性。 
+</code></pre><h2 id="4-Training-Details"><a href="#4-Training-Details" class="headerlink" title="4. Training Details:"></a>4. Training Details:</h2><p>YOLO模型训练分为两步：</p>
 <p>1）预训练。使用<code>ImageNet 1000类</code>数据训练YOLO网络的<code>前20个卷积层</code> + <code>1个average池化层</code> + <code>1个全连接层</code>。训练图像分辨率resize到<code>224x224</code>。</p>
 <p>2）用步骤1）得到的<code>前20个卷积层</code>网络参数来初始化YOLO模型前<code>20</code>个卷积层的网络参数，然后用VOC <code>20</code>类标注数据进行YOLO模型训练。为提高图像精度，在训练检测模型时，将输入图像分辨率resize到<code>448x448</code>。</p>
-<p>综上，YOLO具有如下优点：</p>
-<p>  1)快。YOLO将物体检测作为回归问题进行求解，整个检测网络pipeline简单。在titan x GPU上，在保证检测准确率的前提下<code>(63.4% mAP，VOC 2007 test set)</code>，可以达到<code>45fps</code>的检测速度。<br>  2)背景误检率低。YOLO在训练和推理过程中能‘看到’整张图像的整体信息，而基于region proposal的物体检测方法（如rcnn/fast rcnn），在检测过程中，只‘看到’候选框内的局部图像信息。因此，若当图像背景（非物体）中的部分数据被包含在候选框中送入检测网络进行检测时，容易被误检测成物体。测试证明，YOLO对于背景图像的误检率低于fast rcnn误检率的一半。<br>  3)通用性强。YOLO对于艺术类作品中的物体检测同样适用。它对非自然图像物体的检测率远远高于DPM和RCNN系列检测方法。</p>
+<h3 id="综上，YOLO具有如下优点："><a href="#综上，YOLO具有如下优点：" class="headerlink" title="综上，YOLO具有如下优点："></a>综上，YOLO具有如下优点：</h3><p>  1)<em>快</em>。YOLO将物体检测作为回归问题进行求解，整个检测网络pipeline简单。在titan x GPU上，在保证检测准确率的前提下<code>(63.4% mAP，VOC 2007 test set)</code>，可以达到<code>45fps</code>的检测速度。<br>  2)<em>背景误检率低</em>。YOLO在训练和推理过程中能‘看到’整张图像的整体信息，而基于region proposal的物体检测方法（如rcnn/fast rcnn），在检测过程中，只‘看到’候选框内的局部图像信息。因此，若当图像背景（非物体）中的部分数据被包含在候选框中送入检测网络进行检测时，容易被误检测成物体。测试证明，YOLO对于背景图像的误检率低于fast rcnn误检率的一半。<br>  3)<em>通用性强</em>。YOLO对于艺术类作品中的物体检测同样适用。它对非自然图像物体的检测率远远高于DPM和RCNN系列检测方法。</p>
 <p>但相比RCNN系列物体检测方法，YOLO具有以下缺点：</p>
-<p>  1)识别物体位置精准性差。<br>  2)召回率低。</p>
+<p>  1)<em>识别物体位置精准性差</em>。<br>  2)<em>召回率低</em>。</p>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><pre><code>YOLO以Faster-RCNN的检测pipeline不同，开辟了one stage detector的思路，大幅度地提高了检测的速度，虽然比起Faster-RCNN精度有所下降，但是给我们带来了实时检测的可能，正是这种创新性的工作像灯塔一般引领着我们，感谢每位Researcher的工作，像你们致敬！
+</code></pre><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>You Only Look Once:Unified, Real-Time Object Detection. Joseph Redmon, Santosh Divvala, Ross Girshick, Ali Farhadi. CVPR 2016</p>
 
       
     </div>
@@ -596,7 +596,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Introduction"><span class="nav-number">1.</span> <span class="nav-text">1. Introduction:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-More-Details："><span class="nav-number">2.</span> <span class="nav-text">2. More Details：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Loss-Function："><span class="nav-number">3.</span> <span class="nav-text">3. Loss Function：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注"><span class="nav-number">3.1.</span> <span class="nav-text">注:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Training-Details"><span class="nav-number">4.</span> <span class="nav-text">4. Training Details:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Introduction"><span class="nav-number">1.</span> <span class="nav-text">1. Introduction:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-More-Details："><span class="nav-number">2.</span> <span class="nav-text">2. More Details：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Loss-Function："><span class="nav-number">3.</span> <span class="nav-text">3. Loss Function：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注"><span class="nav-number">3.1.</span> <span class="nav-text">注:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Training-Details"><span class="nav-number">4.</span> <span class="nav-text">4. Training Details:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#综上，YOLO具有如下优点："><span class="nav-number">4.1.</span> <span class="nav-text">综上，YOLO具有如下优点：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Summary"><span class="nav-number">5.</span> <span class="nav-text">Summary</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">6.</span> <span class="nav-text">Reference</span></a></li></ol></div>
             
 
           </div>
