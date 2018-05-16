@@ -96,7 +96,10 @@
 <meta property="og:image" content="http://yoursite.com/2018/04/28/YOLO/1.gif">
 <meta property="og:image" content="http://yoursite.com/2018/04/28/YOLO/7.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/04/28/YOLO/8.jpg">
-<meta property="og:updated_time" content="2018-05-16T02:47:59.000Z">
+<meta property="og:image" content="http://yoursite.com/2018/04/28/YOLO/3_1.gif">
+<meta property="og:image" content="http://yoursite.com/2018/04/28/YOLO/4_1.gif">
+<meta property="og:image" content="http://yoursite.com/2018/04/28/YOLO/5_1.gif">
+<meta property="og:updated_time" content="2018-05-16T03:04:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="You Only Look Once:Unified, Real-Time Object Detection">
 <meta name="twitter:description" content="Introduction: 这是一篇很经典的关于one-stage的paper, 最近由于组里要做一些检测的工作，并且是想让检测算法能够在嵌入式平台上运行, 因此主要聚焦在one-stage detector上, 而两篇比较经典的one-stage detector的paper就是SSD和YOLO了。 本篇工作相对于Faster-RCNN, 不需要先训RPN再去训Fast RCNN, 即不需要额">
@@ -428,7 +431,12 @@ c-1 5-5 9-11 9h-2L532 67 19 159h-2c-5 0-9-4-11-9l-5-22c-1-6 2-12 8-13z"/></svg><
 <p>但相比RCNN系列物体检测方法，YOLO具有以下缺点：</p>
 <p>1)<em>识别物体位置精准性差</em>。<br>
 2)<em>召回率低</em>。</p>
-<h2 id="test-details"><a class="markdownIt-Anchor" href="#test-details"></a> Test Details</h2>
+<h2 id="inference-details"><a class="markdownIt-Anchor" href="#inference-details"></a> Inference Details</h2>
+<p><img src="/2018/04/28/YOLO/3_1.gif" alt="Image4"></p>
+<h3 id="nms"><a class="markdownIt-Anchor" href="#nms"></a> NMS</h3>
+<p><img src="/2018/04/28/YOLO/4_1.gif" alt="Image5"></p>
+<h3 id="detection-results"><a class="markdownIt-Anchor" href="#detection-results"></a> Detection Results</h3>
+<p><img src="/2018/04/28/YOLO/5_1.gif" alt="Image6"></p>
 <h2 id="summary"><a class="markdownIt-Anchor" href="#summary"></a> Summary</h2>
 <p>YOLO以Faster-RCNN的检测pipeline不同，开辟了one stage detector的思路，大幅度地提高了检测的速度，虽然比起Faster-RCNN精度有所下降，但是给我们带来了实时检测的可能，正是这种创新性的工作像灯塔一般引领着我们，感谢每位Researcher的工作，像你们致敬！</p>
 <h2 id="reference"><a class="markdownIt-Anchor" href="#reference"></a> Reference</h2>
@@ -621,7 +629,7 @@ c-1 5-5 9-11 9h-2L532 67 19 159h-2c-5 0-9-4-11-9l-5-22c-1-6 2-12 8-13z"/></svg><
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#introduction"><span class="nav-number">1.</span> <span class="nav-text"> Introduction:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#more-details"><span class="nav-number">2.</span> <span class="nav-text"> More Details：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#loss-function"><span class="nav-number">3.</span> <span class="nav-text"> Loss Function：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注"><span class="nav-number">3.1.</span> <span class="nav-text"> 注:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#training-details"><span class="nav-number">4.</span> <span class="nav-text"> Training Details:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#综上yolo具有如下优点"><span class="nav-number">4.1.</span> <span class="nav-text"> 综上，YOLO具有如下优点：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#test-details"><span class="nav-number">5.</span> <span class="nav-text"> Test Details</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#summary"><span class="nav-number">6.</span> <span class="nav-text"> Summary</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reference"><span class="nav-number">7.</span> <span class="nav-text"> Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#introduction"><span class="nav-number">1.</span> <span class="nav-text"> Introduction:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#more-details"><span class="nav-number">2.</span> <span class="nav-text"> More Details：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#loss-function"><span class="nav-number">3.</span> <span class="nav-text"> Loss Function：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注"><span class="nav-number">3.1.</span> <span class="nav-text"> 注:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#training-details"><span class="nav-number">4.</span> <span class="nav-text"> Training Details:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#综上yolo具有如下优点"><span class="nav-number">4.1.</span> <span class="nav-text"> 综上，YOLO具有如下优点：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#inference-details"><span class="nav-number">5.</span> <span class="nav-text"> Inference Details</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#nms"><span class="nav-number">5.1.</span> <span class="nav-text"> NMS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#detection-results"><span class="nav-number">5.2.</span> <span class="nav-text"> Detection Results</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#summary"><span class="nav-number">6.</span> <span class="nav-text"> Summary</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reference"><span class="nav-number">7.</span> <span class="nav-text"> Reference</span></a></li></ol></div>
             
 
           </div>
