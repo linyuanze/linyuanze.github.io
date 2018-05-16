@@ -106,7 +106,7 @@
 <meta property="og:image" content="http://yoursite.com/2018/04/28/YOLO/15.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/04/28/YOLO/17.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/04/28/YOLO/20.jpg">
-<meta property="og:updated_time" content="2018-05-16T05:57:44.000Z">
+<meta property="og:updated_time" content="2018-05-16T06:03:14.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="You Only Look Once:Unified, Real-Time Object Detection">
 <meta name="twitter:description" content="Introduction: \[E=mc^2\] 这是一篇很经典的关于one-stage的paper, 最近由于组里要做一些检测的工作，并且是想让检测算法能够在嵌入式平台上运行, 因此主要聚焦在one-stage detector上, 而两篇比较经典的one-stage detector的paper就是SSD和YOLO了。 本篇工作相对于Faster-RCNN, 不需要先训RPN再去训Fast R">
@@ -391,7 +391,7 @@
 
       
         <h2 id="introduction">Introduction:</h2>
-<p><span class="math display">\[E=mc^2\]</span></p>
+<h1 id="emc2"><span class="math display">\[E=mc^2\]</span></h1>
 <p>这是一篇很经典的关于one-stage的paper, 最近由于组里要做一些检测的工作，并且是想让检测算法能够在嵌入式平台上运行, 因此主要聚焦在one-stage detector上, 而两篇比较经典的one-stage detector的paper就是SSD和YOLO了。</p>
 <p>本篇工作相对于Faster-RCNN, 不需要先训RPN再去训Fast RCNN, 即不需要额外去训练网络来预测潜在的proposal, 可以实现end to end的训练, 虽然mAP上没有达到Faster RCNN那种程度，但速度有了大幅度的提升，使用GPU甚至可以达到实时地检测，YOLO将目标检测的问题看成一个回归问题来进行求解, 完成了从输入的原始图像到物体位置和类别的输出, 整个YOLO系统Pipeline如下： <img src="/2018/04/28/YOLO/1.jpg" alt="YOLO System Pipeline!"></p>
 <p>即: (1) Resize input image to 448 x 448 (2) Runs a single CNN on the image (3) NMS(thresholds the detection results by their corresponding confidence)</p>
@@ -424,36 +424,38 @@
 <p>2）用步骤1）得到的<code>前20个卷积层</code>网络参数来初始化YOLO模型前<code>20</code>个卷积层的网络参数，然后用VOC <code>20</code>类标注数据进行YOLO模型训练。为提高图像精度，在训练检测模型时，将输入图像分辨率resize到<code>448x448</code>。</p>
 <p>在 YOLO中，每个栅格预测多个bounding box，但在网络模型的训练中，希望每一个物体最后由一个bounding box predictor来负责预测, 因此，当前哪一个predictor预测的bounding box与ground truth box的IOU最大，这个 predictor就负责 predict object。 这会使得每个predictor可以专门的负责特定的物体检测。随着训练的进行，每一个 predictor对特定的物体尺寸、长宽比的物体的类别的预测会越来越好。</p>
 <h3 id="综上yolo具有如下优点">综上，YOLO具有如下优点：</h3>
-<p>1)<em>快</em>。YOLO将物体检测作为回归问题进行求解，整个检测网络pipeline简单。在titan x GPU上，在保证检测准确率的前提下<code>(63.4% mAP，VOC 2007 test set)</code>，可以达到<code>45fps</code>的检测速度。</p>
-<p>2)<em>背景误检率低</em>。YOLO在训练和推理过程中能‘看到’整张图像的整体信息，而基于region proposal的物体检测方法（如rcnn/fast rcnn），在检测过程中，只‘看到’候选框内的局部图像信息。因此，若当图像背景（非物体）中的部分数据被包含在候选框中送入检测网络进行检测时，容易被误检测成物体。测试证明，YOLO对于背景图像的误检率低于fast rcnn误检率的一半, 论文给出对比结果如下: <img src="/2018/04/28/YOLO/16.jpg" alt="Image26"></p>
-<p>3)<em>通用性强</em>。YOLO对于艺术类作品中的物体检测同样适用。它对非自然图像物体的检测率远远高于DPM和RCNN系列检测方法。</p>
+<ol style="list-style-type: decimal">
+<li><p><em>快</em>。YOLO将物体检测作为回归问题进行求解，整个检测网络pipeline简单。在titan x GPU上，在保证检测准确率的前提下<code>(63.4% mAP，VOC 2007 test set)</code>，可以达到<code>45fps</code>的检测速度。</p></li>
+<li><p><em>背景误检率低</em>。YOLO在训练和推理过程中能‘看到’整张图像的整体信息，而基于region proposal的物体检测方法（如rcnn/fast rcnn），在检测过程中，只‘看到’候选框内的局部图像信息。因此，若当图像背景（非物体）中的部分数据被包含在候选框中送入检测网络进行检测时，容易被误检测成物体。测试证明，YOLO对于背景图像的误检率低于fast rcnn误检率的一半, 论文给出对比结果如下: <img src="/2018/04/28/YOLO/16.jpg" alt="Image26"></p></li>
+<li><p><em>通用性强</em>。YOLO对于艺术类作品中的物体检测同样适用。它对非自然图像物体的检测率远远高于DPM和RCNN系列检测方法。</p></li>
+</ol>
 <p>但相比RCNN系列物体检测方法，YOLO具有以下缺点：</p>
 <p>1)<em>识别物体位置精准性差</em>。 2)<em>召回率低</em>。</p>
 <h2 id="inference-details">Inference Details</h2>
 <div class="figure">
-<img src="/2018/04/28/YOLO/3_1.gif" alt="Image4">
-<p class="caption">Image4</p>
+<img src="/2018/04/28/YOLO/3_1.gif" alt="Detection Procedure">
+<p class="caption">Detection Procedure</p>
 </div>
 <h3 id="nms">NMS</h3>
 <div class="figure">
-<img src="/2018/04/28/YOLO/4_1.gif" alt="Image5">
-<p class="caption">Image5</p>
+<img src="/2018/04/28/YOLO/4_1.gif" alt="Non-Maximum Suppression">
+<p class="caption">Non-Maximum Suppression</p>
 </div>
 <h3 id="detection-results">Detection Results</h3>
 <div class="figure">
-<img src="/2018/04/28/YOLO/5_1.gif" alt="Image6">
-<p class="caption">Image6</p>
+<img src="/2018/04/28/YOLO/5_1.gif" alt="Inference Pipeline">
+<p class="caption">Inference Pipeline</p>
 </div>
 <h2 id="experimental-results">Experimental Results</h2>
 <p>将YOLO与其他检测算法进行对比: <img src="/2018/04/28/YOLO/15.jpg" alt="Image6"></p>
 <div class="figure">
-<img src="/2018/04/28/YOLO/17.jpg" alt="Image00">
-<p class="caption">Image00</p>
+<img src="/2018/04/28/YOLO/17.jpg" alt="Experimental Results">
+<p class="caption">Experimental Results</p>
 </div>
 <h2 id="generation-results-on-datasets">Generation Results On Datasets</h2>
 <div class="figure">
-<img src="/2018/04/28/YOLO/20.jpg" alt="Image20">
-<p class="caption">Image20</p>
+<img src="/2018/04/28/YOLO/20.jpg" alt="Generation Results">
+<p class="caption">Generation Results</p>
 </div>
 <h2 id="summary">Summary</h2>
 <p>YOLO以Faster-RCNN的检测pipeline不同，开辟了one stage detector的思路，大幅度地提高了检测的速度，虽然比起Faster-RCNN精度有所下降，但是给我们带来了实时检测的可能，正是这种创新性的工作像灯塔一般引领着我们，感谢每位Researcher的工作，像你们致敬！</p>
@@ -647,7 +649,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#more-details"><span class="nav-number">2.</span> <span class="nav-text">More Details：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#loss-function"><span class="nav-number">3.</span> <span class="nav-text">Loss Function：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注"><span class="nav-number">3.1.</span> <span class="nav-text">注:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#training-details"><span class="nav-number">4.</span> <span class="nav-text">Training Details:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#综上yolo具有如下优点"><span class="nav-number">4.1.</span> <span class="nav-text">综上，YOLO具有如下优点：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#inference-details"><span class="nav-number">5.</span> <span class="nav-text">Inference Details</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#nms"><span class="nav-number">5.1.</span> <span class="nav-text">NMS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#detection-results"><span class="nav-number">5.2.</span> <span class="nav-text">Detection Results</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#experimental-results"><span class="nav-number">6.</span> <span class="nav-text">Experimental Results</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#generation-results-on-datasets"><span class="nav-number">7.</span> <span class="nav-text">Generation Results On Datasets</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#summary"><span class="nav-number">8.</span> <span class="nav-text">Summary</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reference"><span class="nav-number">9.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#emc2"><span class="nav-number"></span> <span class="nav-text">\[E=mc^2\]</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#more-details"><span class="nav-number">1.</span> <span class="nav-text">More Details：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#loss-function"><span class="nav-number">2.</span> <span class="nav-text">Loss Function：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注"><span class="nav-number">2.1.</span> <span class="nav-text">注:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#training-details"><span class="nav-number">3.</span> <span class="nav-text">Training Details:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#综上yolo具有如下优点"><span class="nav-number">3.1.</span> <span class="nav-text">综上，YOLO具有如下优点：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#inference-details"><span class="nav-number">4.</span> <span class="nav-text">Inference Details</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#nms"><span class="nav-number">4.1.</span> <span class="nav-text">NMS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#detection-results"><span class="nav-number">4.2.</span> <span class="nav-text">Detection Results</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#experimental-results"><span class="nav-number">5.</span> <span class="nav-text">Experimental Results</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#generation-results-on-datasets"><span class="nav-number">6.</span> <span class="nav-text">Generation Results On Datasets</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#summary"><span class="nav-number">7.</span> <span class="nav-text">Summary</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reference"><span class="nav-number">8.</span> <span class="nav-text">Reference</span></a></li></ol></div>
             
 
           </div>
