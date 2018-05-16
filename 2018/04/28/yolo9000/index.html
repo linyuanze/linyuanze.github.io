@@ -91,7 +91,7 @@
 <meta property="og:locale" content="Chinese">
 <meta property="og:image" content="http://yoursite.com/2018/04/28/yolo9000/1.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/04/28/yolo9000/2.jpg">
-<meta property="og:updated_time" content="2018-05-16T09:58:54.000Z">
+<meta property="og:updated_time" content="2018-05-16T09:59:45.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="YOLO9000:Better, Faster, Stronger">
 <meta name="twitter:description" content="Abstract:这篇工作是在YOLO的基础上, 作者又进一步优化提出来的, 本文中提出了YOLOv2和YOLO9000, 前者在VOC 2007数据集上可以达到67 FPS, 在40 FPS下可以达到76.8 mAP, 性能已经超过了Faster R-CNN和SSD, 并提出了一种联合训练分类和检测(joint training algorithm)的方法, YOLO9000又对YOLO v2进">
@@ -406,7 +406,7 @@
 <h3 id="Convolutional-With-Anchor-Boxes"><a href="#Convolutional-With-Anchor-Boxes" class="headerlink" title="Convolutional With Anchor Boxes:"></a>Convolutional With Anchor Boxes:</h3><p>YOLO直接在<code>convolutional feature extractor</code>上使用全连接层, 来直接预测<code>Bounding Boxes</code>的坐标, 而Faster R-CNN则是使用<code>hand-picked priors</code>来预测<code>Bounding boxes</code>, 即Faster-RCNN中的<code>RPN</code>仅使用<code>卷积层</code>来预测<code>anchor boxes</code>的<code>offsets</code>及<code>confidences</code>, 由于<code>prediction layer</code>是<code>convolutional</code>, <code>RPN</code>在<code>feature map</code>上的每个位置都预测这些<code>offsets</code>, 预测<code>offsets</code>而不是<code>coordinates</code>能够简化检测问题, 并且使得网络更多地学习<code>(~~作者是这么说, emmm, I need some time to think)</code>。</p>
 <p>于是作者将YOLO中的<code>全连接层</code>去掉(原先是用来做<code>prediction</code>的), 使用<code>anchor boxes</code>来预测<code>bouding boxes</code>, 并且呢, 作者还移去了一个<code>pooling layer</code>, 为了使得网络上的<code>convolutional layers</code>的输出有更大的分辨率(~~心机boy), 并收缩网络到<code>416x416</code>的输入图像上(而不是之前提到的<code>448x448</code>), 作者这么做是为了得到的<code>feature map</code>上的<code>locations</code>是<code>奇数的</code>, this matters, 从而得到<code>a single center cell</code>, <code>large objects</code>更倾向于占据图像的<code>center</code>, 因此在<code>center</code>位置上, 使用<code>a single location</code>来预测目标更好, 而不是<code>4个</code>位置都在附近, YOLO的<code>卷积层</code>下采样输入图像<code>32倍</code>, 由于使用<code>416x416</code>的输入图像, 最终得到的输出特征图是<code>13x13</code>。  </p>
 <p>当使用<code>anchor boxes</code>后, 从<code>spatial location</code>中解耦<code>class prediciton mechanism</code>, 并对每一个<code>anchor box</code>, 都预测<code>class and objectness</code>, 与YOLO一样, <code>objectness prediction</code>也预测<code>ground truth</code>与<code>proposed box</code>间的<code>IOU</code>, <code>class predictions</code>预测含有目标的location属于某类的条件概率, 使用<code>anchor boxes</code>后, 性能有所降低, 原来YOLO每张图像只预测<code>98个boxes</code>, 现在通过<code>anchor boxes mechanism</code>能预测<code>多于1000的boxes</code>, 在没有<code>anchor boxes</code>下, 中间模型性能为<code>69.5 mAP和81% Recall</code>, 使用<code>anchor boxes</code>后, 模型性能为<code>69.2 mAP及88% Recall</code>, 尽管<code>mAP</code>下降了, 但是<code>Recall</code>得到了<code>7%</code>的提升。</p>
-<h3 id="Dimension-Clusters"><a href="#Dimension-Clusters" class="headerlink" title="Dimension Clusters:"></a>Dimension Clusters:</h3><p><code>better box dimensions priors</code>能够帮助模型更容易地预测好的检测结果, 作者不是通过hand-picked来选择<code>box dimensions</code>, 而是在<code>training set bouding boxes</code>上运行<code>k-means clustering</code>来自动地找到好的<code>prior</code>,<br><img src="/2018/04/28/yolo9000/2.jpg" alt="K-means Clustering!"></p>
+<h3 id="Dimension-Clusters"><a href="#Dimension-Clusters" class="headerlink" title="Dimension Clusters:"></a>Dimension Clusters:</h3><p><code>Better box dimensions priors</code>能够帮助模型更容易地预测好的检测结果, 作者不是通过hand-picked来选择<code>box dimensions</code>, 而是在<code>training set bouding boxes</code>上运行<code>k-means clustering</code>来自动地找到好的<code>prior</code>,<br><img src="/2018/04/28/yolo9000/2.jpg" alt="K-means Clustering!"></p>
 <h3 id="Direct-Location-Prediction"><a href="#Direct-Location-Prediction" class="headerlink" title="Direct Location Prediction:"></a>Direct Location Prediction:</h3><h3 id="Fine-Grained-Features"><a href="#Fine-Grained-Features" class="headerlink" title="Fine-Grained Features:"></a>Fine-Grained Features:</h3><h3 id="Multi-Scale-Training"><a href="#Multi-Scale-Training" class="headerlink" title="Multi-Scale Training:"></a>Multi-Scale Training:</h3><h3 id="Further-Experiments"><a href="#Further-Experiments" class="headerlink" title="Further Experiments"></a>Further Experiments</h3><h2 id="Faster"><a href="#Faster" class="headerlink" title="Faster:"></a>Faster:</h2><h3 id="Darknet-19"><a href="#Darknet-19" class="headerlink" title="Darknet-19"></a>Darknet-19</h3><h3 id="Training-For-Classification"><a href="#Training-For-Classification" class="headerlink" title="Training For Classification"></a>Training For Classification</h3><h3 id="Training-For-Detection"><a href="#Training-For-Detection" class="headerlink" title="Training For Detection"></a>Training For Detection</h3><h2 id="Stronger"><a href="#Stronger" class="headerlink" title="Stronger:"></a>Stronger:</h2><h3 id="Hierarchical-Classification"><a href="#Hierarchical-Classification" class="headerlink" title="Hierarchical Classification:"></a>Hierarchical Classification:</h3><h3 id="Dataset-Combination-With-WordTree"><a href="#Dataset-Combination-With-WordTree" class="headerlink" title="Dataset Combination With WordTree:"></a>Dataset Combination With WordTree:</h3><h3 id="Joint-Classification-And-Detection"><a href="#Joint-Classification-And-Detection" class="headerlink" title="Joint Classification And Detection"></a>Joint Classification And Detection</h3><h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>YOLO9000: Better, Faster, Stronger. Joseph Redmon, Ali Farhadi. CVPR2017</p>
 
       
@@ -1135,10 +1135,7 @@
   
    <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
    <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
-   <script type="text/javascript" src="/js/src/fireworks.js"></script>
-  
-
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"bottom":-30,"left":-20,"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":80,"height":150},"mobile":{"show":false,"scale":0.5}});</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+   <script type="text/javascript" src="/js/src/fireworks.js"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config("");
 </script>
@@ -1155,5 +1152,8 @@
 <script type="text/javascript" src="">
 </script>
 <!-- End: Injected MathJax -->
-<!-- hexo-inject:end --></body>
+<!-- hexo-inject:end -->
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"bottom":-30,"left":-20,"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":80,"height":150},"mobile":{"show":false,"scale":0.5}});</script></body>
 </html>
