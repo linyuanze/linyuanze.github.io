@@ -81,13 +81,13 @@
 
 
 
-<meta name="description" content="Introduction: \[E=mc^2^\] 这是一篇很经典的关于one-stage的paper, 最近由于组里要做一些检测的工作，并且是想让检测算法能够在嵌入式平台上运行, 因此主要聚焦在one-stage detector上, 而两篇比较经典的one-stage detector的paper就是SSD和YOLO了。 本篇工作相对于Faster-RCNN, 不需要先训RPN再去训Fast">
+<meta name="description" content="Introduction: \[E=mc^2\] 这是一篇很经典的关于one-stage的paper, 最近由于组里要做一些检测的工作，并且是想让检测算法能够在嵌入式平台上运行, 因此主要聚焦在one-stage detector上, 而两篇比较经典的one-stage detector的paper就是SSD和YOLO了。 本篇工作相对于Faster-RCNN, 不需要先训RPN再去训Fast R">
 <meta name="keywords" content="AI, CV and others">
 <meta property="og:type" content="article">
 <meta property="og:title" content="You Only Look Once:Unified, Real-Time Object Detection">
 <meta property="og:url" content="http://yoursite.com/2018/04/28/YOLO/index.html">
 <meta property="og:site_name" content="One Tourist">
-<meta property="og:description" content="Introduction: \[E=mc^2^\] 这是一篇很经典的关于one-stage的paper, 最近由于组里要做一些检测的工作，并且是想让检测算法能够在嵌入式平台上运行, 因此主要聚焦在one-stage detector上, 而两篇比较经典的one-stage detector的paper就是SSD和YOLO了。 本篇工作相对于Faster-RCNN, 不需要先训RPN再去训Fast">
+<meta property="og:description" content="Introduction: \[E=mc^2\] 这是一篇很经典的关于one-stage的paper, 最近由于组里要做一些检测的工作，并且是想让检测算法能够在嵌入式平台上运行, 因此主要聚焦在one-stage detector上, 而两篇比较经典的one-stage detector的paper就是SSD和YOLO了。 本篇工作相对于Faster-RCNN, 不需要先训RPN再去训Fast R">
 <meta property="og:locale" content="Chinese">
 <meta property="og:image" content="http://yoursite.com/2018/04/28/YOLO/1.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/04/28/YOLO/3.jpg">
@@ -106,10 +106,10 @@
 <meta property="og:image" content="http://yoursite.com/2018/04/28/YOLO/15.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/04/28/YOLO/17.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/04/28/YOLO/20.jpg">
-<meta property="og:updated_time" content="2018-05-16T05:35:31.000Z">
+<meta property="og:updated_time" content="2018-05-16T05:57:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="You Only Look Once:Unified, Real-Time Object Detection">
-<meta name="twitter:description" content="Introduction: \[E=mc^2^\] 这是一篇很经典的关于one-stage的paper, 最近由于组里要做一些检测的工作，并且是想让检测算法能够在嵌入式平台上运行, 因此主要聚焦在one-stage detector上, 而两篇比较经典的one-stage detector的paper就是SSD和YOLO了。 本篇工作相对于Faster-RCNN, 不需要先训RPN再去训Fast">
+<meta name="twitter:description" content="Introduction: \[E=mc^2\] 这是一篇很经典的关于one-stage的paper, 最近由于组里要做一些检测的工作，并且是想让检测算法能够在嵌入式平台上运行, 因此主要聚焦在one-stage detector上, 而两篇比较经典的one-stage detector的paper就是SSD和YOLO了。 本篇工作相对于Faster-RCNN, 不需要先训RPN再去训Fast R">
 <meta name="twitter:image" content="http://yoursite.com/2018/04/28/YOLO/1.jpg">
 
 
@@ -391,7 +391,7 @@
 
       
         <h2 id="introduction">Introduction:</h2>
-<p><span class="math display">\[E=mc^2^\]</span></p>
+<p><span class="math display">\[E=mc^2\]</span></p>
 <p>这是一篇很经典的关于one-stage的paper, 最近由于组里要做一些检测的工作，并且是想让检测算法能够在嵌入式平台上运行, 因此主要聚焦在one-stage detector上, 而两篇比较经典的one-stage detector的paper就是SSD和YOLO了。</p>
 <p>本篇工作相对于Faster-RCNN, 不需要先训RPN再去训Fast RCNN, 即不需要额外去训练网络来预测潜在的proposal, 可以实现end to end的训练, 虽然mAP上没有达到Faster RCNN那种程度，但速度有了大幅度的提升，使用GPU甚至可以达到实时地检测，YOLO将目标检测的问题看成一个回归问题来进行求解, 完成了从输入的原始图像到物体位置和类别的输出, 整个YOLO系统Pipeline如下： <img src="/2018/04/28/YOLO/1.jpg" alt="YOLO System Pipeline!"></p>
 <p>即: (1) Resize input image to 448 x 448 (2) Runs a single CNN on the image (3) NMS(thresholds the detection results by their corresponding confidence)</p>
