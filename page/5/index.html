@@ -994,6 +994,12 @@
 <p><code>confidence = P(object) * IOU</code>, 其中，若bounding box包含物体，则<code>P(object) = 1</code>；否则<code>P(object) = 0</code>, <code>IOU(intersection over union)</code>为预测bounding box与物体真实区域的交集面积（以像素为单位，用真实区域的像素面积归一化到[0,1]区间)。</p>
 <p>因此，YOLO网络最终的全连接层的输出维度是<code>S * S * (B * 5 + C)</code>。YOLO论文中，作者训练采用的输入图像分辨率是<code>448x448</code>，<code>S=7，B=2</code>；采用VOC 2类标注物体作为训练数据，<code>C=20</code>。因此输出向量为<code>7 * 7 * (20 + 2 * 5)=1470维</code>。作者开源出的YOLO代码中，全连接层输出特征向量各维度对应内容如下：<br>
 <img src="/2018/04/28/YOLO/1.gif" alt="Image2"></p>
+<p>每一个栅格还要预测C个conditional class probability（条件类别概率）：Pr(Classi|Object)。即在一个栅格包含一个Object的前提下，它属于某个类的概率, 我们只为每个栅格预测一组（C个）类概率，而不考虑框B的数量, 在测试阶段，将每个栅格的conditional class probabilities与每个 bounding box的 confidence相乘,<br>
+<img src="/2018/04/28/YOLO/0.jpg" alt="Image0"></p>
+<p>这样既可得到每个bounding box的具体类别的confidence score, 这乘积既包含了bounding box中预测的class的 probability信息，也反映了bounding box是否含有Object和bounding box坐标的准确度。<br>
+<img src="/2018/04/28/YOLO/10_1.gif" alt="Image0"></p>
+<p>当在PASCAL VOC数据集上使用YOLO时，论文中指定<code>S=7</code>, 将每一张图片分成<code>7x7</code>的网格, 并且每个网格预测<code>B=2</code>个Boxes, 并且每个Box上有<code>x,y,w,h,confidence</code>等5个预测值, 同时<code>C=20</code>(即刚好是PASCAL VOC上的类别数), 因此最终会有<code>98</code>个Bounding Boxes, 最终预测的是<code>7 * 7 * 30</code>即<code>(S * S (B * 5 + C))</code>的Tensor。<br>
+<img src="/2018/04/28/YOLO/12_1.gif" alt="Image0"></p>
 <h2 id="loss-function"><a class="markdownIt-Anchor" href="#loss-function"></a> Loss Function：</h2>
 <p>YOLO使用均方和误差作为loss函数来优化模型参数，即网络输出的<code>S * S * (B * 5 + C)</code>维向量与真实图像的对应<code>S * S * (B * 5 + C)</code>维向量的均方和误差。如下式所示。其中，<code>coordError、iouError和classError</code>分别代表<code>预测数据与标定数据之间的坐标误差</code>、<code>IOU误差</code>和<code>分类误差</code>。<br>
 <img src="/2018/04/28/YOLO/7.jpg" alt="Image3"></p>
@@ -1014,6 +1020,7 @@ c-1 5-5 9-11 9h-2L532 67 19 159h-2c-5 0-9-4-11-9l-5-22c-1-6 2-12 8-13z"/></svg><
 <p>YOLO模型训练分为两步：</p>
 <p>1）预训练。使用<code>ImageNet 1000类</code>数据训练YOLO网络的<code>前20个卷积层</code> + <code>1个average池化层</code> + <code>1个全连接层</code>。训练图像分辨率resize到<code>224x224</code>。</p>
 <p>2）用步骤1）得到的<code>前20个卷积层</code>网络参数来初始化YOLO模型前<code>20</code>个卷积层的网络参数，然后用VOC <code>20</code>类标注数据进行YOLO模型训练。为提高图像精度，在训练检测模型时，将输入图像分辨率resize到<code>448x448</code>。</p>
+<p>在 YOLO中，每个栅格预测多个bounding box，但在网络模型的训练中，希望每一个物体最后由一个bounding box predictor来负责预测, 因此，当前哪一个predictor预测的bounding box与ground truth box的IOU最大，这个 predictor就负责 predict object。 这会使得每个predictor可以专门的负责特定的物体检测。随着训练的进行，每一个 predictor对特定的物体尺寸、长宽比的物体的类别的预测会越来越好。</p>
 <h3 id="综上yolo具有如下优点"><a class="markdownIt-Anchor" href="#综上yolo具有如下优点"></a> 综上，YOLO具有如下优点：</h3>
 <p>1)<em>快</em>。YOLO将物体检测作为回归问题进行求解，整个检测网络pipeline简单。在titan x GPU上，在保证检测准确率的前提下<code>(63.4% mAP，VOC 2007 test set)</code>，可以达到<code>45fps</code>的检测速度。<br>
 2)<em>背景误检率低</em>。YOLO在训练和推理过程中能‘看到’整张图像的整体信息，而基于region proposal的物体检测方法（如rcnn/fast rcnn），在检测过程中，只‘看到’候选框内的局部图像信息。因此，若当图像背景（非物体）中的部分数据被包含在候选框中送入检测网络进行检测时，容易被误检测成物体。测试证明，YOLO对于背景图像的误检率低于fast rcnn误检率的一半。<br>
