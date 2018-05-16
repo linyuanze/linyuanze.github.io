@@ -643,7 +643,7 @@
 <p>目前的目标检测数据集大幅少于分类及标记任务的数据集的大小, 由于标注检测数据要相对更为<code>expensive</code>, 因此本文针对本问题提出了一种新的方法, <code>使用目标分类的层次视图来结合不同的数据集</code>, 以此通过已有的大量分类数据来扩大目前检测系统的检测规模, 并提出了一种的新的方法, 能够<code>在分类及检测数据集上进行联合训练</code>: 通过标记的检测图像来学习精确地定位目标, 同时使用分类图像来增加<code>vocabulary</code>和<code>robustness</code>。</p>
 <p>于是本文主要是在YOLO上进行优化得到YOLOv2, 而通过使用上述的<code>dataset comnbination method</code>及<code>joint training algorithm</code>在<code>ImageNet</code>数据集(<code>多于9000类目标</code>)和<code>COCO</code>检测数据集上进行训练, 来获得YOLO9000。</p>
 <h2 id="better">Better:</h2>
-<p>实际上, 与目前最先进的检测算法相对, YOLO存在许多缺陷, YOLO与Faster R-CNN相对, 容易产生大量的定位错误, 并且与<code>Region Proposal</code>方法相比, YOLO的召回率较低, 因此接下来的工作主要是在保证分类精度的基础上, 针对<code>Recall</code>及<code>localization</code>来进行优化的。</p>
+<p>实际上, 与目前最先进的检测算法相对, YOLO存在还许多缺陷, 例如YOLO与Faster R-CNN相对, 容易产生大量的定位错误, 并且与<code>Region Proposal</code>方法相比, YOLO的召回率较低, 因此接下来的工作主要是在保证分类精度的基础上, 针对<code>Recall</code>及<code>localization</code>来进行优化的。</p>
 <h3 id="batch-normalization">Batch Normalization:</h3>
 <h3 id="high-resolution-classifier">High Resolution Classifier:</h3>
 <h3 id="convolutional-with-anchor-boxes">Convolutional With Anchor Boxes:</h3>
