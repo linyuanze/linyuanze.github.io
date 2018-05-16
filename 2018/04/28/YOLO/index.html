@@ -106,7 +106,7 @@
 <meta property="og:image" content="http://yoursite.com/2018/04/28/YOLO/15.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/04/28/YOLO/17.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/04/28/YOLO/20.jpg">
-<meta property="og:updated_time" content="2018-05-16T06:08:29.000Z">
+<meta property="og:updated_time" content="2018-05-16T06:10:14.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="You Only Look Once:Unified, Real-Time Object Detection">
 <meta name="twitter:description" content="Introduction: \[E=mc^2\] 这是一篇很经典的关于one-stage的paper, 最近由于组里要做一些检测的工作，并且是想让检测算法能够在嵌入式平台上运行, 因此主要聚焦在one-stage detector上, 而两篇比较经典的one-stage detector的paper就是SSD和YOLO了。 本篇工作相对于Faster-RCNN, 不需要先训RPN再去训Fast R">
@@ -414,7 +414,7 @@
 <p>[2] 在计算<code>IOU</code>误差时，包含物体的格子与不包含物体的格子，二者的<code>IOU</code>误差对网络<code>loss</code>的贡献值是不同的。若采用相同的权值，那么不包含物体的格子的<code>confidence</code>值近似为0，变相放大了包含物体的格子的<code>confidence</code>误差在计算网络参数梯度时的影响。为解决这个问题，YOLO 使用<span class="math inline">\(\lambda_{noobj}\)</span> = 0.5修正<code>iouError</code>。（注此处的‘包含’是指存在一个物体，它的中心坐标落入到格子内）。</p>
 <p>[3] 对于相等的误差值，大物体误差对检测的影响应小于小物体误差对检测的影响。这是因为，相同的位置偏差占大物体的比例远小于同等偏差占小物体的比例。YOLO将物体大小的信息项（<code>w和h</code>）进行求平方根来改进这个问题。（注：这个方法并不能完全解决这个问题）。</p>
 <p>综上，YOLO在训练过程中Loss计算如下式所示： <img src="/2018/04/28/YOLO/8.jpg" alt="Image4"> 其中，<code>x,y,w,C,p</code>为网络预测值，<code>x,y,w,C</code>, <span class="math inline">\(\widehat{p}\)</span>为标注值。<span class="math inline">\(\Pi_{i}^{obj}\)</span> 表示物体落入格子i中，<span class="math inline">\(\Pi_{ij}^{obj}\)</span>和<span class="math inline">\(\Pi_{ij}^{noobj}\)</span>分别表示物体落入与未落入格子<code>i</code>的第<code>j</code>个<code>bounding box</code>内。</p>
-<h3 id="注">注:</h3>
+<h3 id="note">Note:</h3>
 <pre><code>1.YOLO方法模型训练依赖于物体识别标注数据，因此，对于非常规的物体形状或比例，YOLO的检测效果并不理想。
 2.YOLO采用了多个下采样层，网络学到的物体特征并不精细，因此也会影响检测效果。
 3.YOLO loss函数中，大物体IOU误差和小物体IOU误差对网络训练中loss贡献值接近（虽然采用求平方根方式，但没有根本解决问题）。因此，对于小物体，小的IOU误差也会对网络优化过程造成很大的影响，从而降低了物体检测的定位准确性。 </code></pre>
@@ -423,7 +423,7 @@
 <p>1）预训练。使用<code>ImageNet 1000类</code>数据训练YOLO网络的<code>前20个卷积层</code> + <code>1个average池化层</code> + <code>1个全连接层</code>。训练图像分辨率<code>resize</code>到<code>224x224</code>。</p>
 <p>2）用步骤1）得到的<code>前20个卷积层</code>网络参数来初始化YOLO模型前<code>20</code>个卷积层的网络参数，然后用VOC <code>20</code>类标注数据进行YOLO模型训练。为提高图像精度，在训练检测模型时，将输入图像分辨率<code>resize</code>到<code>448x448</code>。</p>
 <p>在 YOLO中，每个栅格预测多个<code>bounding box</code>，但在网络模型的训练中，希望每一个物体最后由一个<code>bounding box predictor</code>来负责预测, 因此，当前哪一个<code>predictor</code>预测的<code>bounding box</code>与<code>ground truth box</code>的<code>IOU</code>最大，这个<code>predictor</code>就负责<code>predict object</code>, 这会使得每个predictor可以专门的负责特定的物体检测。随着训练的进行，每一个<code>predictor</code>对特定的物体尺寸、长宽比的物体的类别的预测会越来越好。</p>
-<h3 id="综上yolo具有如下优点">综上，YOLO具有如下优点：</h3>
+<h3 id="advantages">Advantages：</h3>
 <ol style="list-style-type: decimal">
 <li><p><em>快</em>。YOLO将物体检测作为回归问题进行求解，整个检测网络pipeline简单。在titan x GPU上，在保证检测准确率的前提下<code>(63.4% mAP，VOC 2007 test set)</code>，可以达到<code>45fps</code>的检测速度。</p></li>
 <li><p><em>背景误检率低</em>。YOLO在训练和推理过程中能‘看到’整张图像的整体信息，而基于region proposal的物体检测方法（如rcnn/fast rcnn），在检测过程中，只‘看到’候选框内的局部图像信息。因此，若当图像背景（非物体）中的部分数据被包含在候选框中送入检测网络进行检测时，容易被误检测成物体。测试证明，YOLO对于背景图像的误检率低于fast rcnn误检率的一半, 论文给出对比结果如下: <img src="/2018/04/28/YOLO/16.jpg" alt="Image26"></p></li>
@@ -649,7 +649,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#emc2"><span class="nav-number"></span> <span class="nav-text">\[E=mc^2\]</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#more-details"><span class="nav-number">1.</span> <span class="nav-text">More Details：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#loss-function"><span class="nav-number">2.</span> <span class="nav-text">Loss Function：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注"><span class="nav-number">2.1.</span> <span class="nav-text">注:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#training-details"><span class="nav-number">3.</span> <span class="nav-text">Training Details:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#综上yolo具有如下优点"><span class="nav-number">3.1.</span> <span class="nav-text">综上，YOLO具有如下优点：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#inference-details"><span class="nav-number">4.</span> <span class="nav-text">Inference Details</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#nms"><span class="nav-number">4.1.</span> <span class="nav-text">NMS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#detection-results"><span class="nav-number">4.2.</span> <span class="nav-text">Detection Results</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#experimental-results"><span class="nav-number">5.</span> <span class="nav-text">Experimental Results</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#generation-results-on-datasets"><span class="nav-number">6.</span> <span class="nav-text">Generation Results On Datasets</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#summary"><span class="nav-number">7.</span> <span class="nav-text">Summary</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reference"><span class="nav-number">8.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#emc2"><span class="nav-number"></span> <span class="nav-text">\[E=mc^2\]</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#more-details"><span class="nav-number">1.</span> <span class="nav-text">More Details：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#loss-function"><span class="nav-number">2.</span> <span class="nav-text">Loss Function：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#note"><span class="nav-number">2.1.</span> <span class="nav-text">Note:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#training-details"><span class="nav-number">3.</span> <span class="nav-text">Training Details:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#advantages"><span class="nav-number">3.1.</span> <span class="nav-text">Advantages：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#inference-details"><span class="nav-number">4.</span> <span class="nav-text">Inference Details</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#nms"><span class="nav-number">4.1.</span> <span class="nav-text">NMS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#detection-results"><span class="nav-number">4.2.</span> <span class="nav-text">Detection Results</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#experimental-results"><span class="nav-number">5.</span> <span class="nav-text">Experimental Results</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#generation-results-on-datasets"><span class="nav-number">6.</span> <span class="nav-text">Generation Results On Datasets</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#summary"><span class="nav-number">7.</span> <span class="nav-text">Summary</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reference"><span class="nav-number">8.</span> <span class="nav-text">Reference</span></a></li></ol></div>
             
 
           </div>
@@ -1199,7 +1199,10 @@
   
    <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
    <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
-   <script type="text/javascript" src="/js/src/fireworks.js"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+   <script type="text/javascript" src="/js/src/fireworks.js"></script>
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"bottom":-30,"left":-20,"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":80,"height":150},"mobile":{"show":false,"scale":0.5}});</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config("");
 </script>
@@ -1216,8 +1219,5 @@
 <script type="text/javascript" src="">
 </script>
 <!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
-  
-
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"bottom":-30,"left":-20,"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":80,"height":150},"mobile":{"show":false,"scale":0.5}});</script></body>
+<!-- hexo-inject:end --></body>
 </html>
