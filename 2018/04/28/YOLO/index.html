@@ -81,13 +81,13 @@
 
 
 
-<meta name="description" content="Introduction: 这是一篇很经典的关于one-stage的paper, 最近由于组里要做一些检测的工作，并且是想让检测算法能够在嵌入式平台上运行, 因此主要聚焦在one-stage detector上, 而两篇比较经典的one-stage detector的paper就是SSD和YOLO了。 本篇工作相对于Faster-RCNN, 不需要先训RPN再去训Fast RCNN, 即不需要额">
+<meta name="description" content="Introduction: E=mc2E=mc^2E=mc2 这是一篇很经典的关于one-stage的paper, 最近由于组里要做一些检测的工作，并且是想让检测算法能够在嵌入式平台上运行, 因此主要聚焦在one-stage detector上, 而两篇比较经典的one-stage detector的paper就是SSD和YOLO了。 本篇工作相对于Faster-RCNN, 不需要先训RPN再去">
 <meta name="keywords" content="AI, CV and others">
 <meta property="og:type" content="article">
 <meta property="og:title" content="You Only Look Once:Unified, Real-Time Object Detection">
 <meta property="og:url" content="http://yoursite.com/2018/04/28/YOLO/index.html">
 <meta property="og:site_name" content="One Tourist">
-<meta property="og:description" content="Introduction: 这是一篇很经典的关于one-stage的paper, 最近由于组里要做一些检测的工作，并且是想让检测算法能够在嵌入式平台上运行, 因此主要聚焦在one-stage detector上, 而两篇比较经典的one-stage detector的paper就是SSD和YOLO了。 本篇工作相对于Faster-RCNN, 不需要先训RPN再去训Fast RCNN, 即不需要额">
+<meta property="og:description" content="Introduction: E=mc2E=mc^2E=mc2 这是一篇很经典的关于one-stage的paper, 最近由于组里要做一些检测的工作，并且是想让检测算法能够在嵌入式平台上运行, 因此主要聚焦在one-stage detector上, 而两篇比较经典的one-stage detector的paper就是SSD和YOLO了。 本篇工作相对于Faster-RCNN, 不需要先训RPN再去">
 <meta property="og:locale" content="Chinese">
 <meta property="og:image" content="http://yoursite.com/2018/04/28/YOLO/1.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/04/28/YOLO/3.jpg">
@@ -106,10 +106,10 @@
 <meta property="og:image" content="http://yoursite.com/2018/04/28/YOLO/15.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/04/28/YOLO/17.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/04/28/YOLO/20.jpg">
-<meta property="og:updated_time" content="2018-05-16T03:56:04.000Z">
+<meta property="og:updated_time" content="2018-05-16T04:28:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="You Only Look Once:Unified, Real-Time Object Detection">
-<meta name="twitter:description" content="Introduction: 这是一篇很经典的关于one-stage的paper, 最近由于组里要做一些检测的工作，并且是想让检测算法能够在嵌入式平台上运行, 因此主要聚焦在one-stage detector上, 而两篇比较经典的one-stage detector的paper就是SSD和YOLO了。 本篇工作相对于Faster-RCNN, 不需要先训RPN再去训Fast RCNN, 即不需要额">
+<meta name="twitter:description" content="Introduction: E=mc2E=mc^2E=mc2 这是一篇很经典的关于one-stage的paper, 最近由于组里要做一些检测的工作，并且是想让检测算法能够在嵌入式平台上运行, 因此主要聚焦在one-stage detector上, 而两篇比较经典的one-stage detector的paper就是SSD和YOLO了。 本篇工作相对于Faster-RCNN, 不需要先训RPN再去">
 <meta name="twitter:image" content="http://yoursite.com/2018/04/28/YOLO/1.jpg">
 
 
@@ -391,7 +391,8 @@
 
       
         <h2 id="introduction"><a class="markdownIt-Anchor" href="#introduction"></a> Introduction:</h2>
-<p>这是一篇很经典的关于one-stage的paper, 最近由于组里要做一些检测的工作，并且是想让检测算法能够在嵌入式平台上运行, 因此主要聚焦在one-stage detector上, 而两篇比较经典的one-stage detector的paper就是SSD和YOLO了。</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>E</mi><mo>=</mo><mi>m</mi><msup><mi>c</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">E=mc^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.05764em;">E</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord mathit">m</span><span class="mord"><span class="mord mathit">c</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span><br>
+这是一篇很经典的关于one-stage的paper, 最近由于组里要做一些检测的工作，并且是想让检测算法能够在嵌入式平台上运行, 因此主要聚焦在one-stage detector上, 而两篇比较经典的one-stage detector的paper就是SSD和YOLO了。</p>
 <p>本篇工作相对于Faster-RCNN, 不需要先训RPN再去训Fast RCNN, 即不需要额外去训练网络来预测潜在的proposal, 可以实现end to end的训练, 虽然mAP上没有达到Faster RCNN那种程度，但速度有了大幅度的提升，使用GPU甚至可以达到实时地检测，YOLO将目标检测的问题看成一个回归问题来进行求解, 完成了从输入的原始图像到物体位置和类别的输出, 整个YOLO系统Pipeline如下：<br>
 <img src="/2018/04/28/YOLO/1.jpg" alt="YOLO System Pipeline!"></p>
 <p>即:<br>
@@ -1200,10 +1201,7 @@ c-1 5-5 9-11 9h-2L532 67 19 159h-2c-5 0-9-4-11-9l-5-22c-1-6 2-12 8-13z"/></svg><
   
    <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
    <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
-   <script type="text/javascript" src="/js/src/fireworks.js"></script>
-  
-
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"bottom":-30,"left":-20,"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":80,"height":150},"mobile":{"show":false,"scale":0.5}});</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+   <script type="text/javascript" src="/js/src/fireworks.js"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config("");
 </script>
@@ -1220,5 +1218,8 @@ c-1 5-5 9-11 9h-2L532 67 19 159h-2c-5 0-9-4-11-9l-5-22c-1-6 2-12 8-13z"/></svg><
 <script type="text/javascript" src="custom_mathjax_source">
 </script>
 <!-- End: Injected MathJax -->
-<!-- hexo-inject:end --></body>
+<!-- hexo-inject:end -->
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"bottom":-30,"left":-20,"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":80,"height":150},"mobile":{"show":false,"scale":0.5}});</script></body>
 </html>
