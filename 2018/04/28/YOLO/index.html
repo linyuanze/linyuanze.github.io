@@ -106,7 +106,7 @@
 <meta property="og:image" content="http://yoursite.com/2018/04/28/YOLO/15.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/04/28/YOLO/17.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/04/28/YOLO/20.jpg">
-<meta property="og:updated_time" content="2018-05-16T03:54:04.000Z">
+<meta property="og:updated_time" content="2018-05-16T03:56:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="You Only Look Once:Unified, Real-Time Object Detection">
 <meta name="twitter:description" content="Introduction: 这是一篇很经典的关于one-stage的paper, 最近由于组里要做一些检测的工作，并且是想让检测算法能够在嵌入式平台上运行, 因此主要聚焦在one-stage detector上, 而两篇比较经典的one-stage detector的paper就是SSD和YOLO了。 本篇工作相对于Faster-RCNN, 不需要先训RPN再去训Fast RCNN, 即不需要额">
@@ -439,8 +439,8 @@ c-1 5-5 9-11 9h-2L532 67 19 159h-2c-5 0-9-4-11-9l-5-22c-1-6 2-12 8-13z"/></svg><
 <p>2）用步骤1）得到的<code>前20个卷积层</code>网络参数来初始化YOLO模型前<code>20</code>个卷积层的网络参数，然后用VOC <code>20</code>类标注数据进行YOLO模型训练。为提高图像精度，在训练检测模型时，将输入图像分辨率resize到<code>448x448</code>。</p>
 <p>在 YOLO中，每个栅格预测多个bounding box，但在网络模型的训练中，希望每一个物体最后由一个bounding box predictor来负责预测, 因此，当前哪一个predictor预测的bounding box与ground truth box的IOU最大，这个 predictor就负责 predict object。 这会使得每个predictor可以专门的负责特定的物体检测。随着训练的进行，每一个 predictor对特定的物体尺寸、长宽比的物体的类别的预测会越来越好。</p>
 <h3 id="综上yolo具有如下优点"><a class="markdownIt-Anchor" href="#综上yolo具有如下优点"></a> 综上，YOLO具有如下优点：</h3>
-<p>1)<em>快</em>。YOLO将物体检测作为回归问题进行求解，整个检测网络pipeline简单。在titan x GPU上，在保证检测准确率的前提下<code>(63.4% mAP，VOC 2007 test set)</code>，可以达到<code>45fps</code>的检测速度。<br>
-2)<em>背景误检率低</em>。YOLO在训练和推理过程中能‘看到’整张图像的整体信息，而基于region proposal的物体检测方法（如rcnn/fast rcnn），在检测过程中，只‘看到’候选框内的局部图像信息。因此，若当图像背景（非物体）中的部分数据被包含在候选框中送入检测网络进行检测时，容易被误检测成物体。测试证明，YOLO对于背景图像的误检率低于fast rcnn误检率的一半, 论文给出对比结果如下:<br>
+<p>1)<em>快</em>。YOLO将物体检测作为回归问题进行求解，整个检测网络pipeline简单。在titan x GPU上，在保证检测准确率的前提下<code>(63.4% mAP，VOC 2007 test set)</code>，可以达到<code>45fps</code>的检测速度。</p>
+<p>2)<em>背景误检率低</em>。YOLO在训练和推理过程中能‘看到’整张图像的整体信息，而基于region proposal的物体检测方法（如rcnn/fast rcnn），在检测过程中，只‘看到’候选框内的局部图像信息。因此，若当图像背景（非物体）中的部分数据被包含在候选框中送入检测网络进行检测时，容易被误检测成物体。测试证明，YOLO对于背景图像的误检率低于fast rcnn误检率的一半, 论文给出对比结果如下:<br>
 <img src="/2018/04/28/YOLO/16.jpg" alt="Image26"></p>
 <p>3)<em>通用性强</em>。YOLO对于艺术类作品中的物体检测同样适用。它对非自然图像物体的检测率远远高于DPM和RCNN系列检测方法。</p>
 <p>但相比RCNN系列物体检测方法，YOLO具有以下缺点：</p>
@@ -1200,10 +1200,7 @@ c-1 5-5 9-11 9h-2L532 67 19 159h-2c-5 0-9-4-11-9l-5-22c-1-6 2-12 8-13z"/></svg><
   
    <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
    <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
-   <script type="text/javascript" src="/js/src/fireworks.js"></script>
-  
-
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"bottom":-30,"left":-20,"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":80,"height":150},"mobile":{"show":false,"scale":0.5}});</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+   <script type="text/javascript" src="/js/src/fireworks.js"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
 </script>
@@ -1220,5 +1217,8 @@ c-1 5-5 9-11 9h-2L532 67 19 159h-2c-5 0-9-4-11-9l-5-22c-1-6 2-12 8-13z"/></svg><
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
 </script>
 <!-- End: Injected MathJax -->
-<!-- hexo-inject:end --></body>
+<!-- hexo-inject:end -->
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"bottom":-30,"left":-20,"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":80,"height":150},"mobile":{"show":false,"scale":0.5}});</script></body>
 </html>
