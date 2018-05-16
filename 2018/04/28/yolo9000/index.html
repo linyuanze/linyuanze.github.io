@@ -81,15 +81,18 @@
 
 
 
+<meta name="description" content="这篇工作是在YOLO v2的基础上, 作者又进一步优化提出来的, 能够实时检测9418类物体, 名为YOLO9000, 本篇Blog也将对该篇工作进行详细介绍。 Abstract: Introduction: Better: Batch Normalization: High Resolution Classifier: Convolutional With Anchor Boxes: Dimen">
 <meta name="keywords" content="AI, CV and others">
 <meta property="og:type" content="article">
 <meta property="og:title" content="YOLO9000:Better, Faster, Stronger">
 <meta property="og:url" content="http://yoursite.com/2018/04/28/yolo9000/index.html">
 <meta property="og:site_name" content="One Tourist">
+<meta property="og:description" content="这篇工作是在YOLO v2的基础上, 作者又进一步优化提出来的, 能够实时检测9418类物体, 名为YOLO9000, 本篇Blog也将对该篇工作进行详细介绍。 Abstract: Introduction: Better: Batch Normalization: High Resolution Classifier: Convolutional With Anchor Boxes: Dimen">
 <meta property="og:locale" content="Chinese">
-<meta property="og:updated_time" content="2018-04-28T15:27:56.000Z">
+<meta property="og:updated_time" content="2018-05-16T08:00:22.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="YOLO9000:Better, Faster, Stronger">
+<meta name="twitter:description" content="这篇工作是在YOLO v2的基础上, 作者又进一步优化提出来的, 能够实时检测9418类物体, 名为YOLO9000, 本篇Blog也将对该篇工作进行详细介绍。 Abstract: Introduction: Better: Batch Normalization: High Resolution Classifier: Convolutional With Anchor Boxes: Dimen">
 
 
 
@@ -340,6 +343,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Computer-Vision-Deep-Learning-Object-Detection/" itemprop="url" rel="index">
+                    <span itemprop="name">Computer Vision, Deep Learning, Object Detection</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -367,7 +392,29 @@
       
 
       
-        
+        <p>这篇工作是在YOLO v2的基础上, 作者又进一步优化提出来的, 能够实时检测9418类物体, 名为YOLO9000, 本篇Blog也将对该篇工作进行详细介绍。</p>
+<h2 id="abstract">Abstract:</h2>
+<h2 id="introduction">Introduction:</h2>
+<h2 id="better">Better:</h2>
+<h3 id="batch-normalization">Batch Normalization:</h3>
+<h3 id="high-resolution-classifier">High Resolution Classifier:</h3>
+<h3 id="convolutional-with-anchor-boxes">Convolutional With Anchor Boxes:</h3>
+<h3 id="dimension-clusters">Dimension Clusters:</h3>
+<h3 id="direct-location-prediction">Direct Location Prediction:</h3>
+<h3 id="fine-grained-features">Fine-Grained Features:</h3>
+<h3 id="multi-scale-training">Multi-Scale Training:</h3>
+<h3 id="further-experiments">Further Experiments</h3>
+<h2 id="faster">Faster:</h2>
+<h3 id="darknet-19">Darknet-19</h3>
+<h3 id="training-for-classification">Training For Classification</h3>
+<h3 id="training-for-detection">Training For Detection</h3>
+<h2 id="stronger">Stronger:</h2>
+<h3 id="hierarchical-classification">Hierarchical Classification:</h3>
+<h3 id="dataset-combination-with-wordtree">Dataset Combination With WordTree:</h3>
+<h3 id="joint-classification-and-detection">Joint Classification And Detection</h3>
+<h2 id="summary">Summary</h2>
+<h2 id="reference">Reference</h2>
+<p>YOLO9000: Better, Faster, Stronger. Joseph Redmon, Ali Farhadi. CVPR2017</p>
 
       
     </div>
@@ -456,8 +503,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -546,6 +602,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#abstract"><span class="nav-number">1.</span> <span class="nav-text">Abstract:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#introduction"><span class="nav-number">2.</span> <span class="nav-text">Introduction:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#better"><span class="nav-number">3.</span> <span class="nav-text">Better:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#batch-normalization"><span class="nav-number">3.1.</span> <span class="nav-text">Batch Normalization:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#high-resolution-classifier"><span class="nav-number">3.2.</span> <span class="nav-text">High Resolution Classifier:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#convolutional-with-anchor-boxes"><span class="nav-number">3.3.</span> <span class="nav-text">Convolutional With Anchor Boxes:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dimension-clusters"><span class="nav-number">3.4.</span> <span class="nav-text">Dimension Clusters:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#direct-location-prediction"><span class="nav-number">3.5.</span> <span class="nav-text">Direct Location Prediction:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#fine-grained-features"><span class="nav-number">3.6.</span> <span class="nav-text">Fine-Grained Features:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#multi-scale-training"><span class="nav-number">3.7.</span> <span class="nav-text">Multi-Scale Training:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#further-experiments"><span class="nav-number">3.8.</span> <span class="nav-text">Further Experiments</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#faster"><span class="nav-number">4.</span> <span class="nav-text">Faster:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#darknet-19"><span class="nav-number">4.1.</span> <span class="nav-text">Darknet-19</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#training-for-classification"><span class="nav-number">4.2.</span> <span class="nav-text">Training For Classification</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#training-for-detection"><span class="nav-number">4.3.</span> <span class="nav-text">Training For Detection</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stronger"><span class="nav-number">5.</span> <span class="nav-text">Stronger:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#hierarchical-classification"><span class="nav-number">5.1.</span> <span class="nav-text">Hierarchical Classification:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dataset-combination-with-wordtree"><span class="nav-number">5.2.</span> <span class="nav-text">Dataset Combination With WordTree:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#joint-classification-and-detection"><span class="nav-number">5.3.</span> <span class="nav-text">Joint Classification And Detection</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#summary"><span class="nav-number">6.</span> <span class="nav-text">Summary</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reference"><span class="nav-number">7.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
