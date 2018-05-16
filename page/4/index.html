@@ -650,8 +650,9 @@
 <p>目前所有<code>stage-of-the-art</code>的检测算法都使用在<code>ImageNet</code>数据集上<code>pre-trained</code>的模型, 从<code>AlexNet</code>开始, 许多的分类模型都在小于<code>256x256</code>分辨率上的输入图像上进行操作, 原始的YOLO在<code>224x224</code>图片上训练分类网络, 并增加分辨率至<code>448x448</code>来训练'detector', 这意味着网络需要<code>同时学习目标检测能力</code>并且<code>还要调整新的输入分辨率</code>。</p>
 <p>对于YOLOv2, 作者首先使用分类网络在<code>ImageNet</code>上<code>full 448x448的分辨率</code>进行<code>10个epoch</code>的<code>fine tune</code>, 这能够使得<code>filters</code>在<code>higher resolution input</code>上更好地工作, 之后再将得到的网络在检测数据集上进行<code>fine tune</code>, <code>high resolution classification</code>网络差不多能够提升<code>4% mAP</code>的性能, what???(黑人问号, 提这么多。。Unbelivable)</p>
 <h3 id="convolutional-with-anchor-boxes">Convolutional With Anchor Boxes:</h3>
-<p>YOLO直接在<code>convolutional feature extractor</code>上使用全连接层, 来直接预测<code>Bounding Boxes</code>的坐标, 而Faster R-CNN则是使用<code>hand-picked priors</code>来预测<code>Bounding boxes</code>, Faster-RCNN中的<code>RPN</code>仅使用<code>卷积层</code>来预测<code>anchor boxes</code>的<code>offsets</code>及<code>confidences</code>, 由于<code>prediction layer</code>是<code>convolutional</code>, <code>RPN</code>在<code>feature map</code>上的每个位置都预测这些<code>offsets</code>, 预测<code>offsets</code>而不是<code>coordinates</code>能够简化检测问题, 并且使得网络更多地学习<code>(~~作者是这么说, emmm, I need some time to think)</code>。</p>
-<p>于是作者将YOLO中的<code>全连接层</code>去掉(原先是用来做<code>prediction</code>的), 使用<code>anchor boxes</code>来预测<code>bouding boxes</code>, 并且呢, 作者还移去了一个<code>pooling layer</code>, 为了使得网络上的<code>convolutional layers</code>的输出有更大的分辨率(~~心机boy), 并收缩网络到<code>416x416</code>的输入图像上(而不是之前提到的<code>448x448</code>), 作者这么做是为了得到的<code>feature map</code>上的<code>locations</code>是<code>奇数的</code>, this matters,</p>
+<p>YOLO直接在<code>convolutional feature extractor</code>上使用全连接层, 来直接预测<code>Bounding Boxes</code>的坐标, 而Faster R-CNN则是使用<code>hand-picked priors</code>来预测<code>Bounding boxes</code>, 即Faster-RCNN中的<code>RPN</code>仅使用<code>卷积层</code>来预测<code>anchor boxes</code>的<code>offsets</code>及<code>confidences</code>, 由于<code>prediction layer</code>是<code>convolutional</code>, <code>RPN</code>在<code>feature map</code>上的每个位置都预测这些<code>offsets</code>, 预测<code>offsets</code>而不是<code>coordinates</code>能够简化检测问题, 并且使得网络更多地学习<code>(~~作者是这么说, emmm, I need some time to think)</code>。</p>
+<p>于是作者将YOLO中的<code>全连接层</code>去掉(原先是用来做<code>prediction</code>的), 使用<code>anchor boxes</code>来预测<code>bouding boxes</code>, 并且呢, 作者还移去了一个<code>pooling layer</code>, 为了使得网络上的<code>convolutional layers</code>的输出有更大的分辨率(~~心机boy), 并收缩网络到<code>416x416</code>的输入图像上(而不是之前提到的<code>448x448</code>), 作者这么做是为了得到的<code>feature map</code>上的<code>locations</code>是<code>奇数的</code>, this matters, 从而得到<code>a single center cell</code>, <code>large objects</code>更倾向于占据图像的<code>center</code>, 因此在<code>center</code>位置上, 使用<code>a single location</code>来预测目标更好, 而不是<code>4个</code>位置都在附近, YOLO的<code>卷积层</code>下采样输入图像<code>32倍</code>, 由于使用<code>416x416</code>的输入图像, 最终得到的输出特征图是<code>13x13</code>。</p>
+<p>以YOLO一样, <code>objectness prediction</code>也预测<code>ground truth</code>与<code>proposed box</code>间的<code>IOU</code>, <code>class predictions</code>预测含有目标的location属于某类的条件概率, 使用<code>anchor boxes</code>后, 性能有所降低, 原来YOLO每张图像只预测<code>98个boxes</code>, 现在通过<code>anchor boxes mechanism</code>能预测<code>多于1000的boxes</code>, 在没有<code>anchor boxes</code>下, 中间模型性能为<code>69.5 mAP和81% Recall</code>, 使用<code>anchor boxes</code>后, 模型性能为<code>69.2 mAP及88% Recall</code>, 尽管<code>mAP</code>下降了, 但是<code>Recall</code>得到了<code>7%</code>的提升。</p>
 <h3 id="dimension-clusters">Dimension Clusters:</h3>
 <h3 id="direct-location-prediction">Direct Location Prediction:</h3>
 <h3 id="fine-grained-features">Fine-Grained Features:</h3>
@@ -2207,10 +2208,7 @@
   
    <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
    <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
-   <script type="text/javascript" src="/js/src/fireworks.js"></script>
-  
-
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"bottom":-30,"left":-20,"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":80,"height":150},"mobile":{"show":false,"scale":0.5}});</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+   <script type="text/javascript" src="/js/src/fireworks.js"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config("");
 </script>
@@ -2227,5 +2225,8 @@
 <script type="text/javascript" src="">
 </script>
 <!-- End: Injected MathJax -->
-<!-- hexo-inject:end --></body>
+<!-- hexo-inject:end -->
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"bottom":-30,"left":-20,"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":80,"height":150},"mobile":{"show":false,"scale":0.5}});</script></body>
 </html>
