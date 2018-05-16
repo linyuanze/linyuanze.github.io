@@ -106,7 +106,7 @@
 <meta property="og:image" content="http://yoursite.com/2018/04/28/YOLO/15.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/04/28/YOLO/17.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/04/28/YOLO/20.jpg">
-<meta property="og:updated_time" content="2018-05-16T06:18:30.000Z">
+<meta property="og:updated_time" content="2018-05-16T06:19:49.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="You Only Look Once:Unified, Real-Time Object Detection">
 <meta name="twitter:description" content="Introduction: 这是一篇很经典的关于one-stage的paper, 最近由于组里要做一些检测的工作，并且是想让检测算法能够在嵌入式平台上运行, 因此主要聚焦在one-stage detector上, 而两篇比较经典的one-stage detector的paper就是SSD和YOLO了。 本篇工作相对于Faster-RCNN, 不需要先训RPN再去训Fast RCNN, 即不需要额外">
@@ -408,7 +408,7 @@
 <p><code>confidence</code>反映当前<code>bounding box</code>是否包含物体以及物体位置的准确性，计算方式如下：</p>
 <p><code>confidence = P(object) * IOU</code>, 其中，若bounding box包含物体，则<code>P(object) = 1</code>；否则<code>P(object) = 0</code>, <code>IOU(intersection over union)</code>为预测bounding box与物体真实区域的交集面积（以像素为单位，用真实区域的像素面积归一化到[0,1]区间)。</p>
 <p>因此，YOLO网络最终的全连接层的输出维度是<code>S * S * (B * 5 + C)</code>。YOLO论文中，作者训练采用的输入图像分辨率是<code>448x448</code>，<code>S=7，B=2</code>；采用<code>VOC</code> 2类标注物体作为训练数据，<code>C=20</code>。因此输出向量为<code>7 * 7 * (20 + 2 * 5)=1470维</code>。作者开源出的YOLO代码中，全连接层输出特征向量各维度对应内容如下： <img src="/2018/04/28/YOLO/1.gif" alt="Image2"></p>
-<p>每一个栅格还要预测<code>C</code>个<code>conditional class probability(条件类别概率)</code>: <code>Pr(Classi|Object)</code>。即在一个栅格包含一个Object的前提下，它属于某个类的概率, 我们只为每个栅格预测一组（<code>C个</code>）类概率，而不考虑框B的数量, 在测试阶段，将每个栅格的<code>conditional class probabilities</code>与每个<code>bounding box</code>的<code>confidence</code>相乘, <img src="/2018/04/28/YOLO/0.jpg" alt="Image0"></p>
+<p>每一个栅格还要预测<code>C</code>个<code>conditional class probability(条件类别概率)</code>: <code>Pr(Classi|Object)</code>。即在一个栅格包含一个Object的前提下，它属于某个类的概率, 我们只为每个栅格预测一组（<code>C个</code>）类概率，而不考虑框B的数量, 在测试阶段，将每个栅格的<code>conditional class probabilities</code>与每个<code>bounding box</code>的<code>confidence</code>相乘: <img src="/2018/04/28/YOLO/0.jpg" alt="Image0"></p>
 <p>这样既可得到每个<code>bounding box</code>的具体类别的<code>confidence score</code>, 这乘积既包含了<code>bounding box</code>中预测的class的 probability信息，也反映了<code>bounding box</code>是否含有Object和bounding box坐标的准确度。 <img src="/2018/04/28/YOLO/10_1.gif" alt="Image0"></p>
 <p>当在<code>PASCAL VOC</code>数据集上使用YOLO时，论文中指定<code>S=7</code>, 将每一张图片分成<code>7x7</code>的网格, 并且每个网格预测<code>B=2</code>个<code>Boxes</code>, 并且<code>每个Box</code>上有<code>x,y,w,h,confidence</code>等<code>5</code>个预测值, 同时<code>C=20</code>(即刚好是PASCAL VOC上的类别数), 因此最终会有<code>98</code>个<code>Bounding Boxes</code>, 最终预测的是<code>7 * 7 * 30</code>即<code>(S * S (B * 5 + C))</code>的Tensor。 <img src="/2018/04/28/YOLO/12_1.gif" alt="Image0"></p>
 <h2 id="loss-function">Loss Function：</h2>
