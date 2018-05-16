@@ -81,19 +81,19 @@
 
 
 
-<meta name="description" content="Abstract: 这篇工作是在YOLO的基础上, 作者又进一步优化提出来的, 本文中提出了YOLOv2和YOLO9000, 前者在VOC 2007数据集上可以达到67 FPS, 在40 FPS下可以达到76.8 mAP, 性能已经超过了Faster R-CNN和SSD, 并提出了一种联合训练分类和检测(joint training algorithm)的方法, YOLO9000又对YOLO v">
+<meta name="description" content="Abstract: 这篇工作是在YOLO的基础上, 作者又进一步优化提出来的, 本文中提出了YOLOv2和YOLO9000, 前者在VOC 2007数据集上可以达到67 FPS, 在40 FPS下可以达到76.8 mAP, 性能已经超过了Faster R-CNN和SSD, 并提出了一种联合训练分类和检测(joint training algorithm)的方法, YOLO9000又对YOLO v2">
 <meta name="keywords" content="AI, CV and others">
 <meta property="og:type" content="article">
 <meta property="og:title" content="YOLO9000:Better, Faster, Stronger">
 <meta property="og:url" content="http://yoursite.com/2018/04/28/yolo9000/index.html">
 <meta property="og:site_name" content="One Tourist">
-<meta property="og:description" content="Abstract: 这篇工作是在YOLO的基础上, 作者又进一步优化提出来的, 本文中提出了YOLOv2和YOLO9000, 前者在VOC 2007数据集上可以达到67 FPS, 在40 FPS下可以达到76.8 mAP, 性能已经超过了Faster R-CNN和SSD, 并提出了一种联合训练分类和检测(joint training algorithm)的方法, YOLO9000又对YOLO v">
+<meta property="og:description" content="Abstract: 这篇工作是在YOLO的基础上, 作者又进一步优化提出来的, 本文中提出了YOLOv2和YOLO9000, 前者在VOC 2007数据集上可以达到67 FPS, 在40 FPS下可以达到76.8 mAP, 性能已经超过了Faster R-CNN和SSD, 并提出了一种联合训练分类和检测(joint training algorithm)的方法, YOLO9000又对YOLO v2">
 <meta property="og:locale" content="Chinese">
 <meta property="og:image" content="http://yoursite.com/2018/04/28/yolo9000/1.jpg">
-<meta property="og:updated_time" content="2018-05-16T09:06:11.000Z">
+<meta property="og:updated_time" content="2018-05-16T09:18:55.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="YOLO9000:Better, Faster, Stronger">
-<meta name="twitter:description" content="Abstract: 这篇工作是在YOLO的基础上, 作者又进一步优化提出来的, 本文中提出了YOLOv2和YOLO9000, 前者在VOC 2007数据集上可以达到67 FPS, 在40 FPS下可以达到76.8 mAP, 性能已经超过了Faster R-CNN和SSD, 并提出了一种联合训练分类和检测(joint training algorithm)的方法, YOLO9000又对YOLO v">
+<meta name="twitter:description" content="Abstract: 这篇工作是在YOLO的基础上, 作者又进一步优化提出来的, 本文中提出了YOLOv2和YOLO9000, 前者在VOC 2007数据集上可以达到67 FPS, 在40 FPS下可以达到76.8 mAP, 性能已经超过了Faster R-CNN和SSD, 并提出了一种联合训练分类和检测(joint training algorithm)的方法, YOLO9000又对YOLO v2">
 <meta name="twitter:image" content="http://yoursite.com/2018/04/28/yolo9000/1.jpg">
 
 
@@ -394,36 +394,36 @@
       
 
       
-        <h2 id="abstract"><a class="markdownIt-Anchor" href="#abstract"></a> Abstract:</h2>
+        <h2 id="abstract">Abstract:</h2>
 <p>这篇工作是在YOLO的基础上, 作者又进一步优化提出来的, 本文中提出了YOLOv2和YOLO9000, 前者在<code>VOC 2007</code>数据集上可以达到<code>67 FPS</code>, 在<code>40 FPS</code>下可以达到<code>76.8 mAP</code>, 性能已经超过了<code>Faster R-CNN</code>和<code>SSD</code>, 并提出了一种<code>联合训练分类和检测</code>(<code>joint training algorithm</code>)的方法, YOLO9000又对YOLO v2进行优化, 能够实时检测9418类物体, 故名为YOLO9000, 联合训练方法能够使得YOLO9000能够预测未被标注的检测数据目标类别的检测结果, 尽管在<code>ImageNet Detection Valset</code>上, 在200类中只有44类的检测数据, 它能够达到<code>mAP 19.7</code>的结果, 而在<code>COCO</code>数据集上没有的156类, YOLO9000能够达到<code>16.0 mAP</code>, 本篇Blog将对该篇工作进行详细介绍。</p>
-<h2 id="introduction"><a class="markdownIt-Anchor" href="#introduction"></a> Introduction:</h2>
+<h2 id="introduction">Introduction:</h2>
 <p><code>Object Detection</code>的普遍目的是为了能够<code>又快</code>、<code>又准</code>、并能<code>检测大量类别的目标</code>, 由于<code>Neural Network</code>的引入, 现在的检测框架越来越<code>快</code>、越来越<code>精确</code>, 但是<code>大多数</code>的检测方法仍然只能检测<code>少量</code>的目标。</p>
 <p>目前的目标检测数据集大幅少于分类及标记任务的数据集的大小, 由于标注检测数据要相对更为<code>expensive</code>, 因此本文针对本问题提出了一种新的方法, <code>使用目标分类的层次视图来结合不同的数据集</code>, 以此通过已有的大量分类数据来扩大目前检测系统的检测规模, 并提出了一种的新的方法, 能够<code>在分类及检测数据集上进行联合训练</code>: 通过标记的检测图像来学习精确地定位目标, 同时使用分类图像来增加<code>vocabulary</code>和<code>robustness</code>。</p>
-<p>于是本文主要是在YOLO上进行优化得到YOLOv2, 而通过使用上述的<code>dataset comnbination method</code>及<code>joint training algorithm</code>在<code>ImageNet</code>数据集(<code>多于9000类目标</code>)和<code>COCO</code>检测数据集上进行训练, 来获得YOLO9000。<br>
-<img src="/2018/04/28/yolo9000/1.jpg" alt="YOLO9000!"></p>
-<h2 id="better"><a class="markdownIt-Anchor" href="#better"></a> Better:</h2>
+<p>于是本文主要是在YOLO上进行优化得到YOLOv2, 而通过使用上述的<code>dataset comnbination method</code>及<code>joint training algorithm</code>在<code>ImageNet</code>数据集(<code>多于9000类目标</code>)和<code>COCO</code>检测数据集上进行训练, 来获得YOLO9000。 <img src="/2018/04/28/yolo9000/1.jpg" alt="YOLO9000!"></p>
+<h2 id="better">Better:</h2>
 <p>实际上, 与目前最先进的检测算法相对, YOLO存在还许多缺陷, 例如YOLO与Faster R-CNN相对, 容易产生大量的定位错误, 并且与<code>Region Proposal</code>方法相比, YOLO的召回率较低, 因此接下来的工作主要是在保证分类精度的基础上, 针对<code>Recall</code>及<code>localization</code>来进行优化的, 并且与大部分方法(<code>增大模型</code>或<code>融合多个模型</code>)来提升性能不同, YOLOv2对网络进行了简化, 使得更容易学习到<code>representation</code>的能力。</p>
-<h3 id="batch-normalization"><a class="markdownIt-Anchor" href="#batch-normalization"></a> Batch Normalization:</h3>
+<h3 id="batch-normalization">Batch Normalization:</h3>
 <p><code>Batch Normalization</code>能够巨大地改善收敛情况并能减少其他形式的正则化的需求, 通过在YOLO中的<code>所有卷积层</code>里加入<code>Batch Normalization</code>, 作者在YOLO上<code>mAP</code>提高了<code>2%</code>, 感觉很interesting, 并且<code>Batch Normalization</code>也帮助正则化模型, 加入<code>Batch Normalization</code>后, 可以去掉<code>Dropout</code>, 并且没有出现<code>overfitting</code>。</p>
-<h3 id="high-resolution-classifier"><a class="markdownIt-Anchor" href="#high-resolution-classifier"></a> High Resolution Classifier:</h3>
-<p>目前所有<code>stage-of-the-art</code>的检测算法都使用在<code>ImageNet</code>数据集上<code>pre-trained</code>的模型, 从<code>AlexNet</code>开始, 许多的分类模型都在小于<code>256x256</code>分辨率上的输入图像上进行操作, 原始的YOLO在<code>224x224</code>图片上训练分类网络, 并增加分辨率至<code>448x448</code>来训练’detector’, 这意味着网络需要<code>同时学习目标检测能力</code>并且<code>还要调整新的输入分辨率</code>。</p>
-<p>对于YOLOv2, 作者首先使用分类网络在<code>ImageNet</code>上<code>full 448x448的分辨率</code>进行<code>10个epoch</code>的<code>fine tune</code>, 这能够使得<code>filters</code>在<code>higher resolution input</code>上更好地工作, 之后再将得到的网络在检测数据集上进行<code>fine tune</code>, <code>high resolution classification</code>网络差不多能够提升<code>4% mAP</code>的性能, what???(黑人问号, 提这么多。。)</p>
-<h3 id="convolutional-with-anchor-boxes"><a class="markdownIt-Anchor" href="#convolutional-with-anchor-boxes"></a> Convolutional With Anchor Boxes:</h3>
-<h3 id="dimension-clusters"><a class="markdownIt-Anchor" href="#dimension-clusters"></a> Dimension Clusters:</h3>
-<h3 id="direct-location-prediction"><a class="markdownIt-Anchor" href="#direct-location-prediction"></a> Direct Location Prediction:</h3>
-<h3 id="fine-grained-features"><a class="markdownIt-Anchor" href="#fine-grained-features"></a> Fine-Grained Features:</h3>
-<h3 id="multi-scale-training"><a class="markdownIt-Anchor" href="#multi-scale-training"></a> Multi-Scale Training:</h3>
-<h3 id="further-experiments"><a class="markdownIt-Anchor" href="#further-experiments"></a> Further Experiments</h3>
-<h2 id="faster"><a class="markdownIt-Anchor" href="#faster"></a> Faster:</h2>
-<h3 id="darknet-19"><a class="markdownIt-Anchor" href="#darknet-19"></a> Darknet-19</h3>
-<h3 id="training-for-classification"><a class="markdownIt-Anchor" href="#training-for-classification"></a> Training For Classification</h3>
-<h3 id="training-for-detection"><a class="markdownIt-Anchor" href="#training-for-detection"></a> Training For Detection</h3>
-<h2 id="stronger"><a class="markdownIt-Anchor" href="#stronger"></a> Stronger:</h2>
-<h3 id="hierarchical-classification"><a class="markdownIt-Anchor" href="#hierarchical-classification"></a> Hierarchical Classification:</h3>
-<h3 id="dataset-combination-with-wordtree"><a class="markdownIt-Anchor" href="#dataset-combination-with-wordtree"></a> Dataset Combination With WordTree:</h3>
-<h3 id="joint-classification-and-detection"><a class="markdownIt-Anchor" href="#joint-classification-and-detection"></a> Joint Classification And Detection</h3>
-<h2 id="summary"><a class="markdownIt-Anchor" href="#summary"></a> Summary</h2>
-<h2 id="reference"><a class="markdownIt-Anchor" href="#reference"></a> Reference</h2>
+<h3 id="high-resolution-classifier">High Resolution Classifier:</h3>
+<p>目前所有<code>stage-of-the-art</code>的检测算法都使用在<code>ImageNet</code>数据集上<code>pre-trained</code>的模型, 从<code>AlexNet</code>开始, 许多的分类模型都在小于<code>256x256</code>分辨率上的输入图像上进行操作, 原始的YOLO在<code>224x224</code>图片上训练分类网络, 并增加分辨率至<code>448x448</code>来训练'detector', 这意味着网络需要<code>同时学习目标检测能力</code>并且<code>还要调整新的输入分辨率</code>。</p>
+<p>对于YOLOv2, 作者首先使用分类网络在<code>ImageNet</code>上<code>full 448x448的分辨率</code>进行<code>10个epoch</code>的<code>fine tune</code>, 这能够使得<code>filters</code>在<code>higher resolution input</code>上更好地工作, 之后再将得到的网络在检测数据集上进行<code>fine tune</code>, <code>high resolution classification</code>网络差不多能够提升<code>4% mAP</code>的性能, what???(黑人问号, 提这么多。。Unbelivable)</p>
+<h3 id="convolutional-with-anchor-boxes">Convolutional With Anchor Boxes:</h3>
+<p>YOLO直接在<code>convolutional feature extractor</code>上使用全连接层, 来直接预测<code>Bounding Boxes</code>的坐标, 而Faster R-CNN则是使用<code>hand-picked priors</code>来预测<code>Bounding boxes</code>, Faster-RCNN中的<code>RPN</code>仅使用<code>卷积层</code>来预测<code>anchor boxes</code>的<code>offsets</code>及<code>confidences</code>, 由于<code>prediction layer</code>是<code>convolutional</code>, <code>RPN</code>在<code>feature map</code>上的每个位置都预测这些<code>offsets</code>, 预测<code>offsets</code>而不是<code>coordinates</code>能够简化检测问题, 并且使得网络更多地学习<code>(~~作者是这么说, emmm, I need some time to think)</code></p>
+<h3 id="dimension-clusters">Dimension Clusters:</h3>
+<h3 id="direct-location-prediction">Direct Location Prediction:</h3>
+<h3 id="fine-grained-features">Fine-Grained Features:</h3>
+<h3 id="multi-scale-training">Multi-Scale Training:</h3>
+<h3 id="further-experiments">Further Experiments</h3>
+<h2 id="faster">Faster:</h2>
+<h3 id="darknet-19">Darknet-19</h3>
+<h3 id="training-for-classification">Training For Classification</h3>
+<h3 id="training-for-detection">Training For Detection</h3>
+<h2 id="stronger">Stronger:</h2>
+<h3 id="hierarchical-classification">Hierarchical Classification:</h3>
+<h3 id="dataset-combination-with-wordtree">Dataset Combination With WordTree:</h3>
+<h3 id="joint-classification-and-detection">Joint Classification And Detection</h3>
+<h2 id="summary">Summary</h2>
+<h2 id="reference">Reference</h2>
 <p>YOLO9000: Better, Faster, Stronger. Joseph Redmon, Ali Farhadi. CVPR2017</p>
 
       
@@ -622,7 +622,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#abstract"><span class="nav-number">1.</span> <span class="nav-text"> Abstract:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#introduction"><span class="nav-number">2.</span> <span class="nav-text"> Introduction:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#better"><span class="nav-number">3.</span> <span class="nav-text"> Better:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#batch-normalization"><span class="nav-number">3.1.</span> <span class="nav-text"> Batch Normalization:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#high-resolution-classifier"><span class="nav-number">3.2.</span> <span class="nav-text"> High Resolution Classifier:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#convolutional-with-anchor-boxes"><span class="nav-number">3.3.</span> <span class="nav-text"> Convolutional With Anchor Boxes:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dimension-clusters"><span class="nav-number">3.4.</span> <span class="nav-text"> Dimension Clusters:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#direct-location-prediction"><span class="nav-number">3.5.</span> <span class="nav-text"> Direct Location Prediction:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#fine-grained-features"><span class="nav-number">3.6.</span> <span class="nav-text"> Fine-Grained Features:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#multi-scale-training"><span class="nav-number">3.7.</span> <span class="nav-text"> Multi-Scale Training:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#further-experiments"><span class="nav-number">3.8.</span> <span class="nav-text"> Further Experiments</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#faster"><span class="nav-number">4.</span> <span class="nav-text"> Faster:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#darknet-19"><span class="nav-number">4.1.</span> <span class="nav-text"> Darknet-19</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#training-for-classification"><span class="nav-number">4.2.</span> <span class="nav-text"> Training For Classification</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#training-for-detection"><span class="nav-number">4.3.</span> <span class="nav-text"> Training For Detection</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stronger"><span class="nav-number">5.</span> <span class="nav-text"> Stronger:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#hierarchical-classification"><span class="nav-number">5.1.</span> <span class="nav-text"> Hierarchical Classification:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dataset-combination-with-wordtree"><span class="nav-number">5.2.</span> <span class="nav-text"> Dataset Combination With WordTree:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#joint-classification-and-detection"><span class="nav-number">5.3.</span> <span class="nav-text"> Joint Classification And Detection</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#summary"><span class="nav-number">6.</span> <span class="nav-text"> Summary</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reference"><span class="nav-number">7.</span> <span class="nav-text"> Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#abstract"><span class="nav-number">1.</span> <span class="nav-text">Abstract:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#introduction"><span class="nav-number">2.</span> <span class="nav-text">Introduction:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#better"><span class="nav-number">3.</span> <span class="nav-text">Better:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#batch-normalization"><span class="nav-number">3.1.</span> <span class="nav-text">Batch Normalization:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#high-resolution-classifier"><span class="nav-number">3.2.</span> <span class="nav-text">High Resolution Classifier:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#convolutional-with-anchor-boxes"><span class="nav-number">3.3.</span> <span class="nav-text">Convolutional With Anchor Boxes:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dimension-clusters"><span class="nav-number">3.4.</span> <span class="nav-text">Dimension Clusters:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#direct-location-prediction"><span class="nav-number">3.5.</span> <span class="nav-text">Direct Location Prediction:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#fine-grained-features"><span class="nav-number">3.6.</span> <span class="nav-text">Fine-Grained Features:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#multi-scale-training"><span class="nav-number">3.7.</span> <span class="nav-text">Multi-Scale Training:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#further-experiments"><span class="nav-number">3.8.</span> <span class="nav-text">Further Experiments</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#faster"><span class="nav-number">4.</span> <span class="nav-text">Faster:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#darknet-19"><span class="nav-number">4.1.</span> <span class="nav-text">Darknet-19</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#training-for-classification"><span class="nav-number">4.2.</span> <span class="nav-text">Training For Classification</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#training-for-detection"><span class="nav-number">4.3.</span> <span class="nav-text">Training For Detection</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stronger"><span class="nav-number">5.</span> <span class="nav-text">Stronger:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#hierarchical-classification"><span class="nav-number">5.1.</span> <span class="nav-text">Hierarchical Classification:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dataset-combination-with-wordtree"><span class="nav-number">5.2.</span> <span class="nav-text">Dataset Combination With WordTree:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#joint-classification-and-detection"><span class="nav-number">5.3.</span> <span class="nav-text">Joint Classification And Detection</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#summary"><span class="nav-number">6.</span> <span class="nav-text">Summary</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reference"><span class="nav-number">7.</span> <span class="nav-text">Reference</span></a></li></ol></div>
             
 
           </div>
@@ -1152,10 +1152,7 @@
   
    <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
    <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
-   <script type="text/javascript" src="/js/src/fireworks.js"></script>
-  
-
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"bottom":-30,"left":-20,"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":80,"height":150},"mobile":{"show":false,"scale":0.5}});</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+   <script type="text/javascript" src="/js/src/fireworks.js"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config("");
 </script>
@@ -1172,5 +1169,8 @@
 <script type="text/javascript" src="">
 </script>
 <!-- End: Injected MathJax -->
-<!-- hexo-inject:end --></body>
+<!-- hexo-inject:end -->
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"bottom":-30,"left":-20,"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":80,"height":150},"mobile":{"show":false,"scale":0.5}});</script></body>
 </html>
