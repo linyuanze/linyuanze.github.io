@@ -1023,8 +1023,9 @@ c-1 5-5 9-11 9h-2L532 67 19 159h-2c-5 0-9-4-11-9l-5-22c-1-6 2-12 8-13z"/></svg><
 <p>在 YOLO中，每个栅格预测多个bounding box，但在网络模型的训练中，希望每一个物体最后由一个bounding box predictor来负责预测, 因此，当前哪一个predictor预测的bounding box与ground truth box的IOU最大，这个 predictor就负责 predict object。 这会使得每个predictor可以专门的负责特定的物体检测。随着训练的进行，每一个 predictor对特定的物体尺寸、长宽比的物体的类别的预测会越来越好。</p>
 <h3 id="综上yolo具有如下优点"><a class="markdownIt-Anchor" href="#综上yolo具有如下优点"></a> 综上，YOLO具有如下优点：</h3>
 <p>1)<em>快</em>。YOLO将物体检测作为回归问题进行求解，整个检测网络pipeline简单。在titan x GPU上，在保证检测准确率的前提下<code>(63.4% mAP，VOC 2007 test set)</code>，可以达到<code>45fps</code>的检测速度。<br>
-2)<em>背景误检率低</em>。YOLO在训练和推理过程中能‘看到’整张图像的整体信息，而基于region proposal的物体检测方法（如rcnn/fast rcnn），在检测过程中，只‘看到’候选框内的局部图像信息。因此，若当图像背景（非物体）中的部分数据被包含在候选框中送入检测网络进行检测时，容易被误检测成物体。测试证明，YOLO对于背景图像的误检率低于fast rcnn误检率的一半。<br>
-3)<em>通用性强</em>。YOLO对于艺术类作品中的物体检测同样适用。它对非自然图像物体的检测率远远高于DPM和RCNN系列检测方法。</p>
+2)<em>背景误检率低</em>。YOLO在训练和推理过程中能‘看到’整张图像的整体信息，而基于region proposal的物体检测方法（如rcnn/fast rcnn），在检测过程中，只‘看到’候选框内的局部图像信息。因此，若当图像背景（非物体）中的部分数据被包含在候选框中送入检测网络进行检测时，容易被误检测成物体。测试证明，YOLO对于背景图像的误检率低于fast rcnn误检率的一半, 论文给出对比结果如下:<br>
+<img src="/2018/04/28/YOLO/16.jpg" alt="Image26"></p>
+<p>3)<em>通用性强</em>。YOLO对于艺术类作品中的物体检测同样适用。它对非自然图像物体的检测率远远高于DPM和RCNN系列检测方法。</p>
 <p>但相比RCNN系列物体检测方法，YOLO具有以下缺点：</p>
 <p>1)<em>识别物体位置精准性差</em>。<br>
 2)<em>召回率低</em>。</p>
@@ -1034,6 +1035,12 @@ c-1 5-5 9-11 9h-2L532 67 19 159h-2c-5 0-9-4-11-9l-5-22c-1-6 2-12 8-13z"/></svg><
 <p><img src="/2018/04/28/YOLO/4_1.gif" alt="Image5"></p>
 <h3 id="detection-results"><a class="markdownIt-Anchor" href="#detection-results"></a> Detection Results</h3>
 <p><img src="/2018/04/28/YOLO/5_1.gif" alt="Image6"></p>
+<h2 id="experimental-results"><a class="markdownIt-Anchor" href="#experimental-results"></a> Experimental Results</h2>
+<p>将YOLO与其他检测算法进行对比:<br>
+<img src="/2018/04/28/YOLO/15.jpg" alt="Image6"></p>
+<p><img src="/2018/04/28/YOLO/17.jpg" alt="Image00"></p>
+<h2 id="generation-results-on-datasets"><a class="markdownIt-Anchor" href="#generation-results-on-datasets"></a> Generation Results On Datasets</h2>
+<p><img src="/2018/04/28/YOLO/20.jpg" alt="Image20"></p>
 <h2 id="summary"><a class="markdownIt-Anchor" href="#summary"></a> Summary</h2>
 <p>YOLO以Faster-RCNN的检测pipeline不同，开辟了one stage detector的思路，大幅度地提高了检测的速度，虽然比起Faster-RCNN精度有所下降，但是给我们带来了实时检测的可能，正是这种创新性的工作像灯塔一般引领着我们，感谢每位Researcher的工作，像你们致敬！</p>
 <h2 id="reference"><a class="markdownIt-Anchor" href="#reference"></a> Reference</h2>
