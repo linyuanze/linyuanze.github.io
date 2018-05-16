@@ -637,10 +637,11 @@
         
           
             <h2 id="abstract">Abstract:</h2>
-<p>这篇工作是在YOLO的基础上, 作者又进一步优化提出来的, 本文中提出了YOLO v2和YOLO9000, 前者在<code>VOC 2007</code>数据集上可以达到<code>67 FPS</code>, 在<code>40 FPS</code>下可以达到<code>76.8 mAP</code>, 性能已经超过了<code>Faster R-CNN</code>和<code>SSD</code>, 并提出了一种联合训练分类和检测的方法, YOLO9000又对YOLO v2进行优化, 能够实时检测9418类物体, 故名为YOLO9000, 联合训练方法能够使得YOLO9000能够预测未被标注的检测数据目标类别的检测结果, 尽管在<code>ImageNet Detection Valset</code>上, 在200类中只有44类的检测数据, 它能够达到<code>mAP 19.7</code>的结果, 而在<code>COCO</code>数据集上没有的156类, YOLO9000能够达到<code>16.0 mAP</code>, 本篇Blog将对该篇工作进行详细介绍。</p>
+<p>这篇工作是在YOLO的基础上, 作者又进一步优化提出来的, 本文中提出了YOLOv2和YOLO9000, 前者在<code>VOC 2007</code>数据集上可以达到<code>67 FPS</code>, 在<code>40 FPS</code>下可以达到<code>76.8 mAP</code>, 性能已经超过了<code>Faster R-CNN</code>和<code>SSD</code>, 并提出了一种<code>联合训练分类和检测</code>(<code>joint training algorithm</code>)的方法, YOLO9000又对YOLO v2进行优化, 能够实时检测9418类物体, 故名为YOLO9000, 联合训练方法能够使得YOLO9000能够预测未被标注的检测数据目标类别的检测结果, 尽管在<code>ImageNet Detection Valset</code>上, 在200类中只有44类的检测数据, 它能够达到<code>mAP 19.7</code>的结果, 而在<code>COCO</code>数据集上没有的156类, YOLO9000能够达到<code>16.0 mAP</code>, 本篇Blog将对该篇工作进行详细介绍。</p>
 <h2 id="introduction">Introduction:</h2>
 <p><code>Object Detection</code>的普遍目的是为了能够又快、又准、并能检测大量类别的目标, 由于<code>Neural Network</code>的引入, 现在的检测框架越来越快、越来越精确, 但是大多数的检测方法仍然只能检测少量的目标。</p>
-<p>目前的目标检测数据集大幅少于分类及标记任务的数据集的大小, 由于标注检测数据要相对更为<code>expensive</code>, 因此本文针对本问题提出了一种新的方法, 使用目标分类的层次视图来结合不同的数据集, 以此通过已有的大量分类数据来扩大目前检测系统的检测规模, 并提出了一种的新的方法, 能够在分类及检测数据集上进行联合训练。</p>
+<p>目前的目标检测数据集大幅少于分类及标记任务的数据集的大小, 由于标注检测数据要相对更为<code>expensive</code>, 因此本文针对本问题提出了一种新的方法, <code>使用目标分类的层次视图来结合不同的数据集</code>, 以此通过已有的大量分类数据来扩大目前检测系统的检测规模, 并提出了一种的新的方法, 能够<code>在分类及检测数据集上进行联合训练</code>: 通过标记的检测图像来学习精确地定位目标, 同时使用分类图像来增加<code>vocabulary</code>和<code>robustness</code>。</p>
+<p>于是本文主要是在YOLO上进行优化得到YOLOv2, 而通过使用上述的<code>dataset comnbination method</code>及<code>joint training algorithm</code>在<code>ImageNet</code>数据集(<code>多于9000类目标</code>)和<code>COCO</code>检测数据集上进行训练, 来获得YOLO9000。</p>
 <h2 id="better">Better:</h2>
 <h3 id="batch-normalization">Batch Normalization:</h3>
 <h3 id="high-resolution-classifier">High Resolution Classifier:</h3>
@@ -2200,10 +2201,7 @@
   
    <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
    <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
-   <script type="text/javascript" src="/js/src/fireworks.js"></script>
-  
-
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"bottom":-30,"left":-20,"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":80,"height":150},"mobile":{"show":false,"scale":0.5}});</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+   <script type="text/javascript" src="/js/src/fireworks.js"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config("");
 </script>
@@ -2220,5 +2218,8 @@
 <script type="text/javascript" src="">
 </script>
 <!-- End: Injected MathJax -->
-<!-- hexo-inject:end --></body>
+<!-- hexo-inject:end -->
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"bottom":-30,"left":-20,"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":80,"height":150},"mobile":{"show":false,"scale":0.5}});</script></body>
 </html>
